@@ -1,0 +1,10 @@
+[+] technox.com : 66.96.162.200
+Discovered open port 21/tcp on 66.96.162.200                                   
+Discovered open port 587/tcp on 66.96.162.200                                  
+Discovered open port 443/tcp on 66.96.162.200                                  
+Discovered open port 110/tcp on 66.96.162.200                                  
+Discovered open port 143/tcp on 66.96.162.200                                  
+Discovered open port 465/tcp on 66.96.162.200                                  
+Discovered open port 80/tcp on 66.96.162.200                                   
+Discovered open port 995/tcp on 66.96.162.200                                  
+Discovered open port 25/tcp on 66.96.162.200                                   

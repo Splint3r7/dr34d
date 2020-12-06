@@ -1,0 +1,50 @@
+# Nmap 7.70 scan initiated Mon Oct  1 18:47:52 2018 as: nmap -iL hassankhanyusufzai.com-domains/hassankhanyusufzai.com-all-subs -sP -o nmap
+Nmap scan report for autoconfig.email.hassankhanyusufzai.com (198.54.116.193)
+Host is up (0.49s latency).
+rDNS record for 198.54.116.193: server185-5.web-hosting.com
+Nmap scan report for ftp.hassankhanyusufzai.com (198.54.114.193)
+Host is up (0.49s latency).
+rDNS record for 198.54.114.193: server185-1.web-hosting.com
+Nmap scan report for autoconfig.hassankhanyusufzai.com (198.54.116.193)
+Host is up (0.32s latency).
+rDNS record for 198.54.116.193: server185-5.web-hosting.com
+Nmap scan report for autodiscover.email.hassankhanyusufzai.com (198.54.116.193)
+Host is up (0.35s latency).
+rDNS record for 198.54.116.193: server185-5.web-hosting.com
+Nmap scan report for autodiscover.hassankhanyusufzai.com (198.54.116.193)
+Host is up (0.32s latency).
+rDNS record for 198.54.116.193: server185-5.web-hosting.com
+Nmap scan report for cpanel.hassankhanyusufzai.com (198.54.116.193)
+Host is up (0.32s latency).
+rDNS record for 198.54.116.193: server185-5.web-hosting.com
+Nmap scan report for email2.hassankhanyusufzai.com (198.54.116.193)
+Host is up (0.91s latency).
+rDNS record for 198.54.116.193: server185-5.web-hosting.com
+Nmap scan report for email.hassankhanyusufzai.com (198.54.116.193)
+Host is up (0.44s latency).
+rDNS record for 198.54.116.193: server185-5.web-hosting.com
+Nmap scan report for hassankhanyusufzai.com (198.54.116.193)
+Host is up (0.64s latency).
+rDNS record for 198.54.116.193: server185-5.web-hosting.com
+Nmap scan report for mail.hassankhanyusufzai.com (198.54.116.193)
+Host is up (0.53s latency).
+rDNS record for 198.54.116.193: server185-5.web-hosting.com
+Nmap scan report for webdisk.email.hassankhanyusufzai.com (198.54.116.193)
+Host is up (0.55s latency).
+rDNS record for 198.54.116.193: server185-5.web-hosting.com
+Nmap scan report for webdisk.hassankhanyusufzai.com (198.54.116.193)
+Host is up (0.64s latency).
+rDNS record for 198.54.116.193: server185-5.web-hosting.com
+Nmap scan report for webmail.hassankhanyusufzai.com (198.54.116.193)
+Host is up (0.54s latency).
+rDNS record for 198.54.116.193: server185-5.web-hosting.com
+Nmap scan report for whm.hassankhanyusufzai.com (198.54.116.193)
+Host is up (0.62s latency).
+rDNS record for 198.54.116.193: server185-5.web-hosting.com
+Nmap scan report for www.email.hassankhanyusufzai.com (198.54.116.193)
+Host is up (0.43s latency).
+rDNS record for 198.54.116.193: server185-5.web-hosting.com
+Nmap scan report for www.hassankhanyusufzai.com (198.54.116.193)
+Host is up (0.64s latency).
+rDNS record for 198.54.116.193: server185-5.web-hosting.com
+# Nmap done at Mon Oct  1 18:48:06 2018 -- 16 IP addresses (16 hosts up) scanned in 14.62 seconds

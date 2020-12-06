@@ -1,0 +1,8 @@
+[]
+null
+https://donations-stage.walmart.com/GlobalDonations/gdms/resources/
+https://donations-stage.walmart.com/GlobalDonations/gdms/Public/landingPage/
+https://donations-stage.walmart.com/GlobalDonations/gdms/frameUI/css/
+https://donations-stage.walmart.com/GlobalDonations/gdms/frameUI/
+https://donations-stage.walmart.com/GlobalDonations/gdms/frameUI/js/
+https://donations-stage.walmart.com/GlobalDonations/gdms/Public/

@@ -1,0 +1,29 @@
+# Nmap 7.70 scan initiated Mon Oct  1 18:48:06 2018 as: nmap -iL hassankhanyusufzai.com-domains/hassankhanyusufzai.com-all-subs --script=http-enum -p 80 -Pn -o nampenum
+Nmap scan report for autoconfig.email.hassankhanyusufzai.com (198.54.116.193)
+Host is up (0.69s latency).
+rDNS record for 198.54.116.193: server185-5.web-hosting.com
+
+PORT   STATE SERVICE
+80/tcp open  http
+
+Nmap scan report for ftp.hassankhanyusufzai.com (198.54.114.193)
+Host is up (0.69s latency).
+rDNS record for 198.54.114.193: server185-1.web-hosting.com
+
+PORT   STATE SERVICE
+80/tcp open  http
+
+Nmap scan report for autoconfig.hassankhanyusufzai.com (198.54.116.193)
+Host is up (0.48s latency).
+rDNS record for 198.54.116.193: server185-5.web-hosting.com
+
+PORT   STATE SERVICE
+80/tcp open  http
+
+Nmap scan report for autodiscover.email.hassankhanyusufzai.com (198.54.116.193)
+Host is up (0.67s latency).
+rDNS record for 198.54.116.193: server185-5.web-hosting.com
+
+PORT   STATE SERVICE
+80/tcp open  http
+

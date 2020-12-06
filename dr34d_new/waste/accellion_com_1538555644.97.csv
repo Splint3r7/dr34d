@@ -1,0 +1,80 @@
+104.17.119.180,301,alias,blog.accellion.com,cloudflare
+104.17.119.180,301,alias,4067630.group30.sites.hubspot.net,cloudflare
+104.17.119.180,301,host,group30.sites.hscoscdn30.net,cloudflare
+104.17.121.180,301,host,group30.sites.hscoscdn30.net,cloudflare
+104.17.117.180,301,host,group30.sites.hscoscdn30.net,cloudflare
+104.17.120.180,301,host,group30.sites.hscoscdn30.net,cloudflare
+104.17.118.180,301,host,group30.sites.hscoscdn30.net,cloudflare
+172.217.18.147,302,alias,calendar.accellion.com,ghs
+172.217.18.147,302,host,ghs.google.com,ghs
+66.212.167.165,302,alias,community.accellion.com,Microsoft-HTTPAPI/2.0
+66.212.167.165,302,alias,accellion.magentrix.com,Microsoft-HTTPAPI/2.0
+66.212.167.165,302,host,ns03.magentrixcloud.com,Microsoft-HTTPAPI/2.0
+52.42.192.48,301,alias,developer.accellion.com,Apache/2.4.25 (Debian)
+52.42.192.48,301,host,www-wp-v1-accellion-com-1607093133.us-west-2.elb.amazonaws.com,Apache/2.4.25 (Debian)
+52.25.199.139,301,host,www-wp-v1-accellion-com-1607093133.us-west-2.elb.amazonaws.com,Apache/2.4.25 (Debian)
+52.25.199.139,301,alias,developers.accellion.com,Apache/2.4.25 (Debian)
+52.25.199.139,301,alias,developer.accellion.com,Apache/2.4.25 (Debian)
+52.25.199.139,301,host,www-wp-v1-accellion-com-1607093133.us-west-2.elb.amazonaws.com,Apache/2.4.25 (Debian)
+52.42.192.48,301,host,www-wp-v1-accellion-com-1607093133.us-west-2.elb.amazonaws.com,Apache/2.4.25 (Debian)
+63.251.169.37,,host,dns2.accellion.com,
+165.21.82.227,,host,dns3.accellion.com,
+172.217.18.147,302,alias,docs.accellion.com,ghs
+172.217.18.147,302,host,ghs.google.com,ghs
+52.42.192.48,301,alias,ecommerce.accellion.com,Apache/2.4.25 (Debian)
+52.42.192.48,301,alias,www.accellion.com,Apache/2.4.25 (Debian)
+52.42.192.48,301,host,www-wp-v1-accellion-com-1607093133.us-west-2.elb.amazonaws.com,Apache/2.4.25 (Debian)
+52.25.199.139,301,host,www-wp-v1-accellion-com-1607093133.us-west-2.elb.amazonaws.com,Apache/2.4.25 (Debian)
+199.15.213.48,200,alias,go.accellion.com,Apache
+199.15.213.48,200,host,mkto-j0032.com,Apache
+172.217.18.147,404,alias,groups.accellion.com,ghs
+172.217.18.147,404,host,ghs.google.com,ghs
+104.17.121.180,301,alias,info.accellion.com,cloudflare
+104.17.121.180,301,alias,4067630.group30.sites.hubspot.net,cloudflare
+104.17.121.180,301,host,group30.sites.hscoscdn30.net,cloudflare
+104.17.117.180,301,host,group30.sites.hscoscdn30.net,cloudflare
+104.17.120.180,301,host,group30.sites.hscoscdn30.net,cloudflare
+104.17.119.180,301,host,group30.sites.hscoscdn30.net,cloudflare
+104.17.118.180,301,host,group30.sites.hscoscdn30.net,cloudflare
+203.166.139.206,,host,intranet.accellion.com,
+116.12.187.49,,host,mail.accellion.com,
+63.251.169.38,,alias,monitor.accellion.com,
+63.251.169.38,,host,sandstone.accellion.com,
+70.35.58.8,,host,owa.accellion.com,
+203.117.77.113,,host,signup.accellion.com,
+172.217.18.147,302,alias,start.accellion.com,ghs
+172.217.18.147,302,host,ghs.google.com,ghs
+63.251.169.41,,host,stats.accellion.com,
+54.245.115.205,,alias,store.accellion.com,
+54.245.115.205,,alias,store1.accellion.com,
+54.245.115.205,,host,ec2-54-245-115-205.us-west-2.compute.amazonaws.com,
+66.212.167.162,302,host,support.accellion.com,Microsoft-IIS/10.0
+165.21.82.225,,host,tech.accellion.com,
+104.17.121.180,301,alias,test.accellion.com,cloudflare
+104.17.121.180,301,alias,4067630.group30.sites.hubspot.net,cloudflare
+104.17.121.180,301,host,group30.sites.hscoscdn30.net,cloudflare
+104.17.119.180,301,host,group30.sites.hscoscdn30.net,cloudflare
+104.17.117.180,301,host,group30.sites.hscoscdn30.net,cloudflare
+104.17.120.180,301,host,group30.sites.hscoscdn30.net,cloudflare
+104.17.118.180,301,host,group30.sites.hscoscdn30.net,cloudflare
+52.35.46.154,,alias,w1.accellion.com,
+52.35.46.154,,host,ec2-52-35-46-154.us-west-2.compute.amazonaws.com,
+35.162.166.75,,alias,w2.accellion.com,
+35.162.166.75,,host,ec2-35-162-166-75.us-west-2.compute.amazonaws.com,
+34.209.12.51,,alias,w3.accellion.com,
+34.209.12.51,,host,ec2-34-209-12-51.us-west-2.compute.amazonaws.com,
+52.25.199.139,302,alias,webmail.accellion.com,Apache/2.4.25 (Debian)
+52.25.199.139,302,host,www-wp-v1-accellion-com-1607093133.us-west-2.elb.amazonaws.com,Apache/2.4.25 (Debian)
+52.42.192.48,302,host,www-wp-v1-accellion-com-1607093133.us-west-2.elb.amazonaws.com,Apache/2.4.25 (Debian)
+52.25.199.139,301,alias,www.accellion.com,Apache/2.4.25 (Debian)
+52.25.199.139,301,host,www-wp-v1-accellion-com-1607093133.us-west-2.elb.amazonaws.com,Apache/2.4.25 (Debian)
+52.42.192.48,301,host,www-wp-v1-accellion-com-1607093133.us-west-2.elb.amazonaws.com,Apache/2.4.25 (Debian)
+54.244.217.241,,alias,www-1.accellion.com,
+54.244.217.241,,host,ec2-54-244-217-241.us-west-2.compute.amazonaws.com,
+52.35.46.154,,alias,www1.accellion.com,
+52.35.46.154,,alias,w1.accellion.com,
+52.35.46.154,,host,ec2-52-35-46-154.us-west-2.compute.amazonaws.com,
+54.245.113.169,,alias,www2.accellion.com,
+54.245.113.169,,host,ec2-54-245-113-169.us-west-2.compute.amazonaws.com,
+54.244.129.155,500,alias,www3.accellion.com,Apache/2.4.33 (Amazon) OpenSSL/1.0.2k-fips PHP/7.0.30
+54.244.129.155,500,host,ec2-54-244-129-155.us-west-2.compute.amazonaws.com,Apache/2.4.33 (Amazon) OpenSSL/1.0.2k-fips PHP/7.0.30

@@ -1,0 +1,6 @@
+www.ksoc.co
+asterisk.ksoc.co
+demo.ksoc.co
+elb.ksoc.co
+staging.ksoc.co
+ws-elb.ksoc.co

@@ -1,0 +1,49 @@
+[+] hassankhanyusufzai.com : 198.54.116.193
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-01-29 01:31 +14
+Nmap scan report for server185-5.web-hosting.com (198.54.116.193)
+Host is up (0.31s latency).
+
+PORT    STATE SERVICE  VERSION
+21/tcp  open  ftp      Pure-FTPd
+25/tcp  open  smtp?
+465/tcp open  ssl/smtp Exim smtpd 4.91
+993/tcp open  ssl/imap Dovecot imapd
+995/tcp open  ssl/pop3 Dovecot pop3d
+Service Info: Host: server185.web-hosting.com
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 173.94 seconds
+[+] technox.com : 66.96.162.200
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-01-29 01:34 +14
+Nmap scan report for 200.162.96.66.static.eigbox.net (66.96.162.200)
+Host is up (0.36s latency).
+
+PORT    STATE SERVICE  VERSION
+21/tcp  open  ftp      ProFTPD
+25/tcp  open  smtp     Exim smtpd
+80/tcp  open  http     Microsoft IIS httpd 10.0
+110/tcp open  pop3     Dovecot pop3d
+143/tcp open  imap     Dovecot imapd
+443/tcp open  https?
+465/tcp open  ssl/smtp
+587/tcp open  smtp     Exim smtpd
+995/tcp open  ssl/pop3 Dovecot pop3d
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port465-TCP:V=7.70%T=SSL%I=7%D=1/29%Time=5C4EE8D4%P=x86_64-pc-linux-gnu
+SF:%r(NULL,44,"220\x20ESMTP\x20Mon,\x2028\x20Jan\x202019\x2015:34:35\x20-0
+SF:500:\x20UCE\x20strictly\x20prohibited\r\n")%r(Hello,70,"220\x20ESMTP\x2
+SF:0Mon,\x2028\x20Jan\x202019\x2015:34:35\x20-0500:\x20UCE\x20strictly\x20
+SF:prohibited\r\n501\x20Syntactically\x20invalid\x20EHLO\x20argument\(s\)\
+SF:r\n")%r(Help,A2,"220\x20ESMTP\x20Mon,\x2028\x20Jan\x202019\x2015:34:50\
+SF:x20-0500:\x20UCE\x20strictly\x20prohibited\r\n214-Commands\x20supported
+SF::\r\n214\x20AUTH\x20STARTTLS\x20HELO\x20EHLO\x20MAIL\x20RCPT\x20DATA\x2
+SF:0BDAT\x20NOOP\x20QUIT\x20RSET\x20HELP\r\n")%r(GenericLines,64,"220\x20E
+SF:SMTP\x20Mon,\x2028\x20Jan\x202019\x2015:34:58\x20-0500:\x20UCE\x20stric
+SF:tly\x20prohibited\r\n554\x20SMTP\x20synchronization\x20error\r\n")%r(Ge
+SF:tRequest,64,"220\x20ESMTP\x20Mon,\x2028\x20Jan\x202019\x2015:35:00\x20-
+SF:0500:\x20UCE\x20strictly\x20prohibited\r\n554\x20SMTP\x20synchronizatio
+SF:n\x20error\r\n");
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 40.57 seconds

