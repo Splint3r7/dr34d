@@ -114,6 +114,19 @@ cd ~/tools/
 git clone https://github.com/jobertabma/relative-url-extractor
 cd ~/tools/
 
+echo "installing findomain"
+mkdir -p ~/tools/Findomain
+wget https://github.com/Findomain/Findomain/releases/download/7.0.0-beta.2/findomain-linux
+mv findomain-linux ~/tools/ && chmod +x findomain-linux
+cd ~/tools/
+echo "done"
+
+echo "Installing Amass"
+apt-get install amass
+
+echo "Installing Github Search"
+cd ~/tools && git clone https://github.com/gwen001/github-search
+cd github-search && pip install -r requirements2.txt 
 
 echo -e "\n\n\n\n\n\n\n\n\n\n\nDone! All tools are set up in ~/tools"
 ls -la

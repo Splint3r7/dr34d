@@ -86,6 +86,12 @@ Purple='\033[0;35m'
 IRed='\033[0;91m' 
 Cyan='\033[0;36m'
 
+GithubSearchSubdomsOut=GithubSearchSubdomsOut.txt
+GithubSearchEndpointsOut=GithubSearchEndpointsOut.txt
+finddomainOut=finddomainOut.txt
+amassOut=amassOut.txt
+
+
 NMAP (){
 
 	echo -e "${YELLO}------------------------------------------------${NC}"
@@ -179,10 +185,25 @@ JEXBOSS (){
 	echo -e "${Purple}\n[*] Finished Jexboss${NC}"
 }
 
+AMASS() {
+	amass enum -active -o $amassOut -d $IP
+}
+
+FINDOMAIN () {
+	~/tools/Findomain/findomain-linux -t $IP -u $finddomainOut
+}
+
+GithubDomains () {
+	python3 ~/tools/github-search/github-subdomains.py -t "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" -d $IP >> $GithubSearchSubdomsOut
+}
+
 ## subdomains
 DOMAIN-SCAN(){
 	QUOTES
+	FINDOMAIN
 	SUBFINDER
+	GithubDomains
+	AMASS
 	CERTDOMAINFINDER
 	DELATOR
 	GETALTNAME
@@ -199,13 +220,13 @@ DOMAIN-SCAN(){
 	mkdir -p Output/$IP/$IP-domains
 	cat /root/aquatone/$IP/hosts.txt |cut -d "," -f1 > $IP-aquatone.txt
 	cat $IP.csv|cut -d "," -f1|cut -d "\"" -f2 > $IP.csv
-	mv $IP-censys.txt $IP.lst $IP-sublist3r.txt $IP.csv $IP-aquatone.txt Output/$IP/$IP-domains
+	mv $IP-censys.txt $IP.lst $IP-sublist3r.txt $GithubSearchSubdomsOut $amassOut $finddomainOut $IP.csv $IP-aquatone.txt Output/$IP/$IP-domains
 	mv $IP-certdomainfinder.txt $IP-delator.txt $IP-getaltname.txt $IP-subdomainizer.txt $IP-subfinder.txt Output/$IP/$IP-domains
 	mv /root/aquatone/$IP/$IP-aquatone.txt /root/tools/dr34d/$IP-201*
 	cd ~/tools/dr34d/Output/$IP/$IP-domains
-	cat $IP-censys.txt $IP.lst $IP-sublist3r.txt $IP.csv $IP-aquatone.txt $IP-certdomainfinder.txt $IP-delator.txt $IP-getaltname.txt $IP-subdomainizer.txt $IP-subfinder.txt |sort |uniq > $IP-all-subs
+	cat $IP-censys.txt $IP.lst $IP-sublist3r.txt $GithubSearchSubdomsOut $finddomainOut $amassOut $IP.csv $IP-aquatone.txt $IP-certdomainfinder.txt $IP-delator.txt $IP-getaltname.txt $IP-subdomainizer.txt $IP-subfinder.txt |sort |uniq > $IP-all-subs
 	#cat $IP-certdomainfinder.txt $IP-delator.txt $IP-getaltname.txt $IP-subdomainizer.txt $IP-subfinder.txt |sort |uniq > $IP-all-subs
-	rm -rf $IP-censys.txt $IP.lst $IP-sublist3r.txt $IP.csv $IP-aquatone.txt $IP-certdomainfinder.txt $IP-delator.txt $IP-getaltname.txt $IP-subdomainizer.txt $IP-subfinder.txt
+	rm -rf $IP-censys.txt $IP.lst $IP-sublist3r.txt $GithubSearchSubdomsOut $finddomainOut $amassOut $IP.csv $IP-aquatone.txt $IP-certdomainfinder.txt $IP-delator.txt $IP-getaltname.txt $IP-subdomainizer.txt $IP-subfinder.txt
 	#rm -rf $IP-certdomainfinder.txt $IP-delator.txt $IP-getaltname.txt $IP-subdomainizer.txt $IP-subfinder.txt
 	count=$(wc -l $IP-all-subs)
 	#cd ~/tools/dr34d
