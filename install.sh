@@ -151,6 +151,12 @@ wget https://github.com/projectdiscovery/nuclei/releases/download/v2.6.0/nuclei_
 unzip nuclei_2.6.0_linux_amd64.zip
 cp nuclei /usr/bin && chmod +x /usr/bin/nuclei
 
+go install github.com/netevert/delator@master
+cp ~/go/bin/delator ~/tools/
+
+go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+cp ~/go/bin/subfinder ~/tools/
+
 
 echo -e "\n\n\n\n\n\n\n\n\n\n\nDone! All tools are set up in ~/tools"
 ls -la
