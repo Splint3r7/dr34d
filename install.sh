@@ -117,7 +117,7 @@ cd ~/tools/
 echo "installing findomain"
 mkdir -p ~/tools/Findomain
 wget https://github.com/Findomain/Findomain/releases/download/7.0.0-beta.2/findomain-linux
-mv findomain-linux ~/tools/ && chmod +x findomain-linux
+mv findomain-linux ~/tools/Findomain && chmod +x ~/tools/Findomain/findomain-linux
 cd ~/tools/
 echo "done"
 
@@ -127,6 +127,12 @@ apt-get install amass
 echo "Installing Github Search"
 cd ~/tools && git clone https://github.com/gwen001/github-search
 cd github-search && pip install -r requirements2.txt 
+cd ~/tools/
+
+echo "Install scilla"
+git clone https://github.com/edoardottt/scilla && cd scilla
+go get
+make linux 
 
 echo -e "\n\n\n\n\n\n\n\n\n\n\nDone! All tools are set up in ~/tools"
 ls -la

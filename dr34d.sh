@@ -90,6 +90,7 @@ GithubSearchSubdomsOut=GithubSearchSubdomsOut.txt
 GithubSearchEndpointsOut=GithubSearchEndpointsOut.txt
 finddomainOut=finddomainOut.txt
 amassOut=amassOut.txt
+ScillaOut=ScillaOut.txt
 
 
 NMAP (){
@@ -154,19 +155,19 @@ SUBFINDER(){
 	~/tools/subfinder -d $IP -o $IP-subfinder.txt
 }
 SUBLIST3R(){
-	python ~/tools/Sublist3r/sublist3r.py -v -t 15 -d $IP -o $IP-sublist3r.txt
+	python3 ~/tools/Sublist3r/sublist3r.py -v -t 15 -d $IP -o $IP-sublist3r.txt
 	#Install commands to be added in installation script
 }
 ENUMALL(){
-	python ~/tools/domain/enumall.py $IP
+	python2 ~/tools/domain/enumall.py $IP
 	#Install commands to be added in installation script
 }
 KNOCKPY(){
-	python ~/tools/knock/knockpy/knockpy.py -c $IP
+	python2 ~/tools/knock/knockpy/knockpy.py -c $IP
 #	Install commands to be added in installation script
 }
 CENSYS(){
-	python ~/tools/censys-subdomain-finder/censys_subdomain_finder.py $IP -o $IP-censys.txt
+	python3 ~/tools/censys-subdomain-finder/censys_subdomain_finder.py $IP -o $IP-censys.txt
 	#Don;t forget to add API_KEYS of censys in censys_subdomain_finder.py
 }
 AQUATONE(){
@@ -194,7 +195,12 @@ FINDOMAIN () {
 }
 
 GithubDomains () {
+	echo "[+] GithubSearch Domain Scan Running...."
 	python3 ~/tools/github-search/github-subdomains.py -t "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" -d $IP >> $GithubSearchSubdomsOut
+}
+
+Scilla () {
+	scilla subdomain -target target.domain -o $ScillaOut
 }
 
 ## subdomains
@@ -213,10 +219,8 @@ DOMAIN-SCAN(){
 	sleep 2
 	ENUMALL
 	sleep 2
-	#KNOCKPY
 	CENSYS
 	sleep 2
-	#AQUATONE
 	mkdir -p Output/$IP/$IP-domains
 	cat /root/aquatone/$IP/hosts.txt |cut -d "," -f1 > $IP-aquatone.txt
 	cat $IP.csv|cut -d "," -f1|cut -d "\"" -f2 > $IP.csv
