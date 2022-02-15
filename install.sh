@@ -133,6 +133,13 @@ echo "Install scilla"
 git clone https://github.com/edoardottt/scilla && cd scilla
 go get
 make linux 
+cd ~/tools/
+
+echo "install easyxss"
+git clone github.com/splint3r7/easyxss
+cd easyxss
+pip install -r requirements.txt
+cd ~/tools/
 
 echo -e "\n\n\n\n\n\n\n\n\n\n\nDone! All tools are set up in ~/tools"
 ls -la
