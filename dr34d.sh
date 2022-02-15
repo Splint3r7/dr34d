@@ -210,6 +210,7 @@ DOMAIN-SCAN(){
 	SUBFINDER
 	GithubDomains
 	AMASS
+	Scilla
 	CERTDOMAINFINDER
 	DELATOR
 	GETALTNAME
@@ -224,13 +225,13 @@ DOMAIN-SCAN(){
 	mkdir -p Output/$IP/$IP-domains
 	cat /root/aquatone/$IP/hosts.txt |cut -d "," -f1 > $IP-aquatone.txt
 	cat $IP.csv|cut -d "," -f1|cut -d "\"" -f2 > $IP.csv
-	mv $IP-censys.txt $IP.lst $IP-sublist3r.txt $GithubSearchSubdomsOut $amassOut $finddomainOut $IP.csv $IP-aquatone.txt Output/$IP/$IP-domains
+	mv $IP-censys.txt $IP.lst $IP-sublist3r.txt $ScillaOut $GithubSearchSubdomsOut $amassOut $finddomainOut $IP.csv $IP-aquatone.txt Output/$IP/$IP-domains
 	mv $IP-certdomainfinder.txt $IP-delator.txt $IP-getaltname.txt $IP-subdomainizer.txt $IP-subfinder.txt Output/$IP/$IP-domains
 	mv /root/aquatone/$IP/$IP-aquatone.txt /root/tools/dr34d/$IP-201*
 	cd ~/tools/dr34d/Output/$IP/$IP-domains
-	cat $IP-censys.txt $IP.lst $IP-sublist3r.txt $GithubSearchSubdomsOut $finddomainOut $amassOut $IP.csv $IP-aquatone.txt $IP-certdomainfinder.txt $IP-delator.txt $IP-getaltname.txt $IP-subdomainizer.txt $IP-subfinder.txt |sort |uniq > $IP-all-subs
+	cat $IP-censys.txt $IP.lst $IP-sublist3r.txt $GithubSearchSubdomsOut $ScillaOut $finddomainOut $amassOut $IP.csv $IP-aquatone.txt $IP-certdomainfinder.txt $IP-delator.txt $IP-getaltname.txt $IP-subdomainizer.txt $IP-subfinder.txt |sort |uniq > $IP-all-subs
 	#cat $IP-certdomainfinder.txt $IP-delator.txt $IP-getaltname.txt $IP-subdomainizer.txt $IP-subfinder.txt |sort |uniq > $IP-all-subs
-	rm -rf $IP-censys.txt $IP.lst $IP-sublist3r.txt $GithubSearchSubdomsOut $finddomainOut $amassOut $IP.csv $IP-aquatone.txt $IP-certdomainfinder.txt $IP-delator.txt $IP-getaltname.txt $IP-subdomainizer.txt $IP-subfinder.txt
+	rm -rf $IP-censys.txt $IP.lst $IP-sublist3r.txt $GithubSearchSubdomsOut $ScillaOut $finddomainOut $amassOut $IP.csv $IP-aquatone.txt $IP-certdomainfinder.txt $IP-delator.txt $IP-getaltname.txt $IP-subdomainizer.txt $IP-subfinder.txt
 	#rm -rf $IP-certdomainfinder.txt $IP-delator.txt $IP-getaltname.txt $IP-subdomainizer.txt $IP-subfinder.txt
 	count=$(wc -l $IP-all-subs)
 	#cd ~/tools/dr34d
