@@ -141,6 +141,17 @@ cd easyxss
 pip install -r requirements.txt
 cd ~/tools/
 
+echo "installing httprobe"
+apt-get install httprobe
+go install github.com/tomnomnom/httprobe@master
+cp ~/go/bin/httprobe /usr/bin && chmod /usr/bin/httprobe
+
+echo "installing nuclei"
+wget https://github.com/projectdiscovery/nuclei/releases/download/v2.6.0/nuclei_2.6.0_linux_amd64.zip
+unzip nuclei_2.6.0_linux_amd64.zip
+cp nuclei /usr/bin && chmod +x /usr/bin/nuclei
+
+
 echo -e "\n\n\n\n\n\n\n\n\n\n\nDone! All tools are set up in ~/tools"
 ls -la
 echo "One last time: don't forget to set up AWS credentials in ~/.aws/!"

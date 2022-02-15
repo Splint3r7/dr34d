@@ -92,7 +92,6 @@ finddomainOut=finddomainOut.txt
 amassOut=amassOut.txt
 ScillaOut=ScillaOut.txt
 
-
 NMAP (){
 
 	echo -e "${YELLO}------------------------------------------------${NC}"
@@ -423,6 +422,26 @@ IP-TOOLS() {
 		echo -e "${YELLO}Are you trying to cheat my tool :~/${NC}"
 	 fi 
 }
+
+HTTPROBE () {
+	cat ~/tools/dr34d/Output/$IP/$IP-domains/$IP-all-subs | httprobe -c 200 | tee ../$IP-httprobe.txt
+}
+
+
+SPIDERPOC () {
+
+	DOMAIN-SCAN
+
+	HTTPROBE
+
+}
+
+if [[ $1 == "-p" ]] || [[ $1 == "--poc" ]]; then
+	IP=$2
+	SPIDERPOC
+	exit 1
+fi
+
 
 #Main 
 clear
